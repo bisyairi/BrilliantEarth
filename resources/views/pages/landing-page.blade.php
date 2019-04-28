@@ -97,7 +97,7 @@
 		        <div class="new-trend section-padding">
                     <div class="row">
                         <div class="section-title">
-                            <h2>New Trend</h2>
+                            <h2>New Trendsssssss</h2>
                         </div>
                         <div class="new-trend-list indicator-style">
                             @foreach ($newtrend as $trend)
