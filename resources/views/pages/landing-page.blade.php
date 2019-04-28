@@ -113,7 +113,7 @@
                                                     <a href="#"><i class="flaticon-bag"></i></a>
                                                 </li>
                                                 <li>
-                                                    <a href="#" title="Quick view" data-toggle="modal" data-target="#productModal_{{ $newtrend->id }}"><i class="flaticon-view"></i></a>
+                                                    <a href="#" title="Quick view" data-toggle="modal" data-target="#productModal"><i class="flaticon-view"></i></a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -173,7 +173,7 @@
                                                 <a href="#"><i class="flaticon-bag"></i></a>
                                             </li>
 											<li>
-												<a href="#" title="Quick view" data-toggle="modal" data-target="#productModal_{{ $feature->id }}"><i class="flaticon-view"></i></a>
+												<a href="#" title="Quick view" data-toggle="modal" data-target="#productModal"><i class="flaticon-view"></i></a>
 											</li>
                                         </ul>
                                     </div>
@@ -452,13 +452,4 @@
             </div>
         </div>
         <!--End of Quickview Product-->
-
-        <script type="text/javascript">
-        $(function() {
-            $('#productModal').on("show.bs.modal", function (e) {
-                $("#favoritesModalLabel").html($(e.relatedTarget).data('title'));
-                $("#fav-title").html($(e.relatedTarget).data('title'));
-            });
-        });
-        </script>
 @endsection

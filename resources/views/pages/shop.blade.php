@@ -253,8 +253,8 @@
                                            <a href="single-product.html">
                                                <img src="{{asset('img/product/'.$product->image)}}" alt="">
                                            </a>
-                                           <div class="single-product-overlay sale">
-                                               <h3>sale</h3>
+                                           <div class="single-product-overlay {{ $product->status }}">
+                                               <h3>{{ $product->status_desc }}</h3>
                                            </div>
                                            <div class="single-product-content">
                                               <div class="left-content pull-left">
@@ -276,7 +276,7 @@
                                         @foreach ($products as $product)
                                         <div class="shop-list-single">
                                             <div class="shop-list-left">
-                                                <a href="#"><img style="width:270px; height:345px" src="{{asset('img/product/'.$product->image)}}" alt="" /></a>
+                                                <a href="#"><img style="width:270px; height:345px" src="{{asset('img/product/'.$product->image)}}" alt="" /></a>                                          
                                             </div>  
                                             <div class="shop-list-right">
                                                 <div class="left-content">
