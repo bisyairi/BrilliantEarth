@@ -14,7 +14,7 @@ class AddStatusToProductsTable extends Migration
     public function up()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->string('status')->after('new_trend');
+            $table->string('status')->nullable()->after('new_trend');
         });
     }
 
