@@ -35,10 +35,11 @@ class ShopController extends Controller
             'products' => $products,
             'categories' => $categories,
             'categoryName' => $categoryName,
+
         ]);
     }
 
-    /* public function show($slug)
+    public function show($slug)
     {
         $product = Product::where('slug', $slug)->firstOrFail();
         $mightAlsoLike = Product::where('slug', '!=', $slug)->mightAlsoLike()->get();
@@ -50,5 +51,5 @@ class ShopController extends Controller
             'stockLevel' => $stockLevel,
             'mightAlsoLike' => $mightAlsoLike,
         ]);
-    } */
+    }
 }

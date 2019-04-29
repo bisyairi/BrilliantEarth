@@ -21,42 +21,14 @@
                         <aside class="widget widget-categories">
                             <h2 class="sidebar-title">CATEGORY</h2>
                             <ul class="sidebar-menu">
-                                <li>
-                                    <a href="#">
-                                        Rings                                          
-                                        <span>(10)</span>
+                                @foreach ($categories as $category)
+                                <li class="{{ setActiveCategory($category->slug) }}">
+                                    <a href="{{ route('shop.index', ['category' => $category->slug]) }}">
+                                        {{ $category->name }}                                        
+                                        <span>{{ $category->quantity }}</span>
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="#">
-                                        Necklaces                                            
-                                        <span>(15)</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                       Bracelets
-                                        <span>(5)</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        Earrings                                           
-                                        <span>(25)</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        Churies                                 
-                                        <span>(14)</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        Jewelry Sets                                           
-                                        <span>(20)</span>
-                                    </a>
-                                </li>
+                                @endforeach
                             </ul>
                         </aside>
                         <aside class="widget widget-shop-by">
