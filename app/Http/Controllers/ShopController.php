@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Product;
+use App\Products;
 use App\Category;
+use App\CategoryProduct;
 use Illuminate\Http\Request;
 
 class ShopController extends Controller
@@ -14,12 +15,12 @@ class ShopController extends Controller
         $categories = Category::all();
 
         if (request()->category) {
-            $products = Product::with('categories')->whereHas('categories', function ($query) {
+            $products = Products::with('categories')->whereHas('categories', function ($query) {
                 $query->where('slug', request()->category);
             });
             $categoryName = optional($categories->where('slug', request()->category)->first())->name;
         } else {
-            $products = Product::where('featured', true);
+            $products = Products::where('featured', true);
             $categoryName = 'Featured';
         }
 
@@ -41,8 +42,8 @@ class ShopController extends Controller
 
     public function show($slug)
     {
-        $product = Product::where('slug', $slug)->firstOrFail();
-        $mightAlsoLike = Product::where('slug', '!=', $slug)->mightAlsoLike()->get();
+        $product = Products::where('slug', $slug)->firstOrFail();
+        $mightAlsoLike = Products::where('slug', '!=', $slug)->mightAlsoLike()->get();
 
         $stockLevel = getStockLevel($product->quantity);
 
