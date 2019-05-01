@@ -109,16 +109,9 @@
                                 </div>
                             </div>
                             <div class="shop-tab-pill pull-right">
-                                <div class="shop-pagination">
-                                    <ul>
-                                        <li><a href="#"><i class="fa fa-caret-left"></i></a></li>
-                                        <li><a href="#">1</a></li>
-                                        <li><a href="#">2</a></li>
-                                        <li><a href="#">3</a></li>
-                                        <li><a href="#"><i class="fa fa-caret-right"></i></a></li>
-                                    </ul>
-                                    {{ $products->appends(request()->input())->links() }}
-                                </div>
+                                    <div class="shop-pagination">
+                                            {{ $products->render("pagination::bootstrap-4") }}
+                                    </div>
                             </div>
                         </div>
                         <div class="tab-content">
