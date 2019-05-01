@@ -24,8 +24,8 @@
                                 @foreach ($categories as $category)
                                 <li class="{{ setActiveCategory($category->slug) }}">
                                     <a href="{{ route('shop.index', ['category' => $category->slug]) }}">
-                                        {{ $category->name }}                                        
-                                        <span>{{ $category->quantity }}</span>
+                                        <span class="widget-hover">{{ $category->name }}</span>                                        
+                                        <span>{{-- {{ $category->quantity }} --}}</span>
                                     </a>
                                 </li>
                                 @endforeach
