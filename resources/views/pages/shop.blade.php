@@ -24,53 +24,11 @@
                                 @foreach ($categories as $category)
                                 <li class="{{ setActiveCategory($category->slug) }}">
                                     <a href="{{ route('shop.index', ['category' => $category->slug]) }}">
-                                        <span class="widget-hover">{{ $category->name }}</span>                                        
-                                        <span>{{-- {{ $category->quantity }} --}}</span>
+                                        <span class="widget-hover">{{ $category->name }}</span>
+                                        <span>({{$category->products_count}})</span>
                                     </a>
                                 </li>
                                 @endforeach
-                            </ul>
-                        </aside>
-                        <aside class="widget widget-shop-by">
-                            <h2 class="sidebar-title">SHOP BY</h2>
-                            <h3 class="sidebar-sub-title">Manufacture</h3>
-                            <ul class="sidebar-menu">
-                                <li>
-                                    <a href="#">
-                                        <span class="widget-hover">Rings</span>                                            
-                                        <span>(20)</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <span class="widget-hover">Necklaces</span>                                            
-                                        <span>(26)</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <span class="widget-hover">Bracelets</span>
-                                        <span>(15)</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <span class="widget-hover">Earrings</span>                                            
-                                        <span>(22)</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <span class="widget-hover">Churies</span>                                            
-                                        <span>(26)</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <span class="widget-hover">Jewelry Sets</span>                                            
-                                        <span>(36)</span>
-                                    </a>
-                                </li>
                             </ul>
                         </aside>
                         <aside class="widget widget-shop-by">
@@ -84,47 +42,6 @@
                                     </div>
                                 </div>
                             </div>
-                        </aside>
-                        <aside class="widget widget-shop-by">
-                            <h3 class="sidebar-sub-title">Color</h3>
-                            <ul class="sidebar-menu">
-                                <li>
-                                    <a href="#">
-                                        <span class="widget-hover">White</span>                                            
-                                        <span>(21)</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <span class="widget-hover">Black</span>                                            
-                                        <span>(5)</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <span class="widget-hover">Blue</span>
-                                        <span>(10)</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <span class="widget-hover">Red</span>                                            
-                                        <span>(14)</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <span class="widget-hover">Green</span>                                            
-                                        <span>(20)</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <span class="widget-hover">Gray</span>                                            
-                                        <span>(6)</span>
-                                    </a>
-                                </li>
-                            </ul>
                         </aside>
                         <aside class="widget widget-populer-tag">
                             <h2 class="sidebar-title">POPULAR TAG</h2>
@@ -141,19 +58,6 @@
                                 <li><a href="#">Clothing</a></li>
                                 <li><a href="#">men’s</a></li>
                                 <li><a href="#">Carry bag</a></li>
-                            </ul>
-                        </aside>
-                        <aside class="widget widget-compare">
-                            <h2 class="sidebar-title">COMPARE</h2>
-                            <ul class="side-bar-compare">
-                                <li>
-                                    Product Name #01  
-                                    <a href="#"><span><i class="fa fa-times"></i></span></a>
-                                </li>
-                                <li>
-                                    Product Name #02
-                                    <a href="#"><i class="fa fa-times"></i></a>
-                                </li>
                             </ul>
                         </aside>
                         <aside class="widget widget-image">
@@ -213,6 +117,7 @@
                                         <li><a href="#">3</a></li>
                                         <li><a href="#"><i class="fa fa-caret-right"></i></a></li>
                                     </ul>
+                                    {{ $products->appends(request()->input())->links() }}
                                 </div>
                             </div>
                         </div>
@@ -326,7 +231,5 @@
         </div>
     </div>
     <!-- Shop Page Area End -->
-    <!-- Brand Area Start -->
-    @include('inc.brand')
-    <!-- Brand Area End -->
+    <br>
 @endsection

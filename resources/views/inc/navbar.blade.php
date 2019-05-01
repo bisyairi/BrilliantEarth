@@ -51,8 +51,6 @@
                             <ul id="nav">
                                 <li><a href="/">HOME</a></li>
                                 <li><a href="/shop">DIAMOND</a></li>
-                                <li><a href="/shop">ENGAGEMENT RING</a></li>
-                                <li><a href="/shop">WEDDING RING</a></li>
                                 <li><a href="/shop">COLLECTION</a></li>
                                 <li><a href="#">Pages</a>
                                     <ul class="sub-menu">
