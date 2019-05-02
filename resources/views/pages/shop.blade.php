@@ -189,6 +189,7 @@
                                                     <option value="Name">Name</option>
                                                     <option value="Price">Price</option>
                                                 </select>
+                                                {{-- {!!Form::select('sort', array('position' => 'Position','name' => 'Name', 'price' => 'Price'), 'Position'); !!} --}}
                                             </div>
                                         </li>
                                         <li class="product-size-deatils">

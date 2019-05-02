@@ -23,10 +23,10 @@ class ShopController extends Controller
             $categoryName = 'Featured';
         }
 
-        if (request()->sort == 'low_high') {
-            $products = $products->orderBy('price')->paginate($pagination);
-        } elseif (request()->sort == 'high_low') {
-            $products = $products->orderBy('price', 'desc')->paginate($pagination);
+        if (request()->sort == 'name') {
+            $products = $products->orderBy('name')->paginate($pagination);
+        } elseif (request()->sort == 'price') {
+            $products = $products->orderBy('price', 'asc')->paginate($pagination);
         } else {
             $products = $products->paginate($pagination);
         }
