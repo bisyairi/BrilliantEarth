@@ -37,7 +37,7 @@
                                 <div class="price_filter">
                                     <div id="slider-range"></div>
                                     <div class="price_slider_amount">
-                                        <input type="text" id="amount" name="price"  placeholder="Add Your Price" />
+                                    <input type="text" id="amount" name="price" placeholder="Add Your Price" />
                                         <input type="submit"  value="SEARCH"/> 
                                     </div>
                                 </div>
@@ -86,10 +86,10 @@
                                         <li class="product-size-deatils">
                                             <div class="show-label">
                                                 <label>Sort by : </label>
-                                                <select>
+                                                <select onchange="location = this.value;">
                                                     <option value="position" selected="selected">Position</option>
-                                                    <option value="Name">Name</option>
-                                                    <option value="Price">Price</option>
+                                                    <option value="{{ route('shop.index', ['category'=> request()->category, 'sort' => 'name']) }}">Name</option>
+                                                    <option value="{{ route('shop.index', ['category'=> request()->category, 'sort' => 'price']) }}">Price</option>
                                                 </select>
                                             </div>
                                         </li>
@@ -184,12 +184,11 @@
                                         <li class="product-size-deatils">
                                             <div class="show-label">
                                                 <label>Sort by : </label>
-                                                <select>
+                                                <select onchange="location = this.value;">
                                                     <option value="position" selected="selected">Position</option>
-                                                    <option value="Name">Name</option>
-                                                    <option value="Price">Price</option>
+                                                    <option value="{{ route('shop.index', ['category'=> request()->category, 'sort' => 'name']) }}">Name</option>
+                                                    <option value="{{ route('shop.index', ['category'=> request()->category, 'sort' => 'price']) }}">Price</option>
                                                 </select>
-                                                {{-- {!!Form::select('sort', array('position' => 'Position','name' => 'Name', 'price' => 'Price'), 'Position'); !!} --}}
                                             </div>
                                         </li>
                                         <li class="product-size-deatils">

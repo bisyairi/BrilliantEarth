@@ -12,6 +12,8 @@ class ShopController extends Controller
         
         $pagination = 9;
         $categories = Category::withCount('products')->get();
+        $minprice = Product::min('price');
+        $maxprice = Product::max('price');
         
         if (request()->category) {
             $products = Product::with('categories')->whereHas('categories', function ($query) {
@@ -35,6 +37,8 @@ class ShopController extends Controller
             'products' => $products,
             'categories' => $categories,
             'categoryName' => $categoryName,
+            'minprice' => $minprice,
+            'maxprice' => $maxprice,
 
         ]);
     }
