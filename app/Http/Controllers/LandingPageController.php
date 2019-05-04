@@ -15,6 +15,8 @@ class LandingPageController extends Controller
         $newproduct4 = Product::where('featured', true)->take(8)->limit(1)->inRandomOrder()->get();
         $featured = Product::where('featured', true)->take(8)->inRandomOrder()->get();
         $newtrends = Product::where('new_trend', true)->take(8)->inRandomOrder()->get();
+        $minprice = Product::min('price');
+        $maxprice = Product::max('price');
         
         return view('pages.landing-page')->with([
             'newproduct1' => $newproduct1,

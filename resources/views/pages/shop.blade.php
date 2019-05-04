@@ -37,28 +37,11 @@
                                 <div class="price_filter">
                                     <div id="slider-range"></div>
                                     <div class="price_slider_amount">
-                                    <input type="text" id="amount" name="price" placeholder="Add Your Price" />
-                                        <input type="submit"  value="SEARCH"/> 
+                                            <input type="text" id="amount" name="price" placeholder="Add Your Price" />
+                                            <input type="submit" value="SEARCH" /> 
                                     </div>
                                 </div>
                             </div>
-                        </aside>
-                        <aside class="widget widget-populer-tag">
-                            <h2 class="sidebar-title">POPULAR TAG</h2>
-                            <ul class="tag-list">
-                                <li><a href="#">Fashion</a></li>
-                                <li><a href="#">Women’s</a></li>
-                                <li><a href="#">Kids</a></li>
-                                <li><a href="#">Lookbook</a></li>
-                                <li><a href="#">Accessories</a></li>
-                                <li><a href="#">Dress</a></li>
-                                <li><a href="#">Sale Off</a></li>
-                                <li><a href="#">Accessories</a></li>
-                                <li><a href="#">Clothing</a></li>
-                                <li><a href="#">Clothing</a></li>
-                                <li><a href="#">men’s</a></li>
-                                <li><a href="#">Carry bag</a></li>
-                            </ul>
                         </aside>
                         <aside class="widget widget-image">
                            <a href="#">
@@ -110,7 +93,7 @@
                             </div>
                             <div class="shop-tab-pill pull-right">
                                     <div class="shop-pagination">
-                                            {{ $products->render("pagination::bootstrap-4") }}
+                                            {{ $products->appends(request()->input())->render("pagination::bootstrap-4") }}
                                     </div>
                             </div>
                         </div>
@@ -208,7 +191,7 @@
                             </div>
                             <div class="shop-tab-pill pull-right">
                                 <div class="shop-pagination">
-                                    {{ $products->render("pagination::bootstrap-4") }}
+                                    {{ $products->appends(request()->input())->render("pagination::bootstrap-4") }}
                                 </div>
                             </div>
                         </div>
@@ -219,4 +202,23 @@
     </div>
     <!-- Shop Page Area End -->
     <br>
+@endsection
+
+@section('extra-js')
+    <!-- Javascript -->
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script>
+        $(function() {
+            $( "#slider-range" ).slider({
+                range:true,
+                min: {!! $minprice !!},
+                max: {!! $maxprice !!},
+                values: [ {!! $minprice !!}, {!! $maxprice !!} ],
+                slide: function( event, ui ) {
+                    $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+                    }
+            });
+            $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) + " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+        });
+        </script>
 @endsection

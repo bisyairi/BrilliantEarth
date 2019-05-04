@@ -28,7 +28,7 @@ class ShopController extends Controller
         if (request()->sort == 'name') {
             $products = $products->orderBy('name')->paginate($pagination);
         } elseif (request()->sort == 'price') {
-            $products = $products->orderBy('price', 'asc')->paginate($pagination);
+            $products = $products->orderBy('price')->paginate($pagination);
         } else {
             $products = $products->paginate($pagination);
         }
