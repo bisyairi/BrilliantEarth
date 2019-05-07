@@ -12,14 +12,18 @@ class Product extends Model
         return $this->belongsToMany('App\Category');
     }
 
+    public function attributes(){
+        return $this->hasMany('App\ProductAttribute');
+    }
+
     public function presentPrice()
     {
-        return '$'.number_format($this->price / 100, 2);
+        return 'RM'.number_format($this->price / 100, 2);
     }
 
     public function scopeMightAlsoLike($query)
     {
         return $query->inRandomOrder()->take(4);
     }
-
+    
 }

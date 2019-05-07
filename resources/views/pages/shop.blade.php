@@ -37,8 +37,10 @@
                                 <div class="price_filter">
                                     <div id="slider-range"></div>
                                     <div class="price_slider_amount">
+                                        <form action="{{ route('shop.index') }}" method="GET">
                                             <input type="text" id="amount" name="price" placeholder="Add Your Price" />
                                             <input type="submit" value="SEARCH" /> 
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -103,7 +105,7 @@
                                    @foreach ($products as $product)
                                    <div class="col-md-4 col-sm-6">
                                        <div class="single-product">
-                                           <a href="single-product.html">
+                                           <a href="{{ route('shop.show', $product->slug) }}">
                                                <img src="{{asset('img/product/'.$product->image)}}" alt="">
                                            </a>
                                            <div class="single-product-overlay {{ $product->status }}">
@@ -111,11 +113,11 @@
                                            </div>
                                            <div class="single-product-content">
                                               <div class="left-content pull-left">
-                                                  <a href="#"><h2>{{ $product->name }}</h2></a>
-                                                   <span class="new-price">RM {{ $product->price }}</span>                                                     
+                                                  <a href="{{ route('shop.show', $product->slug) }}"><h2>{{ $product->name }}</h2></a>
+                                                   <span class="new-price">{{ $product->presentPrice() }}</span>                                                     
                                               </div>
                                               <div class="right-content pull-right">
-                                                  <a href="#"><i class="flaticon-bag"></i></a>
+                                                  <a href="{{ route('shop.show', $product->slug) }}"><i class="flaticon-bag"></i></a>
                                               </div>
                                            </div>
                                        </div>
@@ -134,7 +136,7 @@
                                             <div class="shop-list-right">
                                                 <div class="left-content">
                                                     <a href="#"><h2>{{$product->name}}</h2></a>
-                                                    <span class="new-price">RM {{$product->price}}</span>
+                                                    <span class="new-price">{{$product->presentPrice()}}</span>
                                                 </div>
                                                 <div class="list-pro-rating">
                                                     <i class="fa fa-star icolor"></i>
@@ -206,7 +208,6 @@
 
 @section('extra-js')
     <!-- Javascript -->
-    <script src="{{ asset('js/app.js') }}"></script>
     <script>
         $(function() {
             $( "#slider-range" ).slider({
@@ -215,10 +216,10 @@
                 max: {!! $maxprice !!},
                 values: [ {!! $minprice !!}, {!! $maxprice !!} ],
                 slide: function( event, ui ) {
-                    $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+                    $( "#amount" ).val( "RM" + ui.values[ 0 ]/100 + " - RM" + ui.values[ 1 ]/100 );
                     }
             });
-            $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) + " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+            $( "#amount" ).val( "RM" + $( "#slider-range" ).slider( "values", 0 )/100 + " - RM" + $( "#slider-range" ).slider( "values", 1 )/100 );
         });
         </script>
 @endsection

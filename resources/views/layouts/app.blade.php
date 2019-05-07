@@ -85,5 +85,7 @@
 		<script src="{{asset('lib/home.js')}}" type="text/javascript"></script>
 		<!-- main js -->
         <script src="{{asset('js/main.js')}}"></script>
+
+        @yield('extra-js')
     </body>
 </html>

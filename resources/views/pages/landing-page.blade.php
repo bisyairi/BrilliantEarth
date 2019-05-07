@@ -100,12 +100,12 @@
                             <h2>New Trend</h2>
                         </div>
                         <div class="new-trend-list indicator-style">
-                            @foreach ($newtrend as $trend)
+                            @foreach ($newtrend as $key => $trend)
                             <div class="col-md-4">
                                 <div class="single-new-trend">
                                     <a href="/shop"><img src="{{asset('img/product/'.$trend->image)}}" alt=""></a>
                                     <div class="overlay-content">
-                                    <a href="/shop"><h2>RM {{$trend->price}}</h2></a>
+                                    <a href="/shop"><h2>{{$trend->presentPrice()}}</h2></a>
                                         <a href="/shop" class="btn-small">Now</a>
                                         <div class="product-action">
                                             <ul>
@@ -113,7 +113,10 @@
                                                     <a href="#"><i class="flaticon-bag"></i></a>
                                                 </li>
                                                 <li>
-                                                    <a href="#" title="Quick view" data-toggle="modal" data-target="#productModal"><i class="flaticon-view"></i></a>
+                                                <a href="#" class="show-modal" title="Quick view" data-toggle="modal" data-target="#productModal"
+                                                data-id="{{$trend->id}}" data-desc="{{$trend->description}}" 
+                                                data-image="{{asset('img/product/'.$trend->image)}}" data-price="{{$trend->presentPrice()}}" 
+                                                data-name="{{$trend->name}}"><i class="flaticon-view"></i></a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -160,12 +163,12 @@
                         <h2>Featured Products</h2>
                     </div>
                     <div class="featured-product-list indicator-style">
-                        @foreach ($featured as $feature)
+                        @foreach ($featured as $key => $feature)
                         <div class="col-md-3">
                             <div class="single-new-trend">
                                 <a href="/shop"><img src="{{asset('img/product/'.$feature->image)}}" alt=""></a>
                                 <div class="overlay-content">
-                                <a href="/shop"><h2>RM {{ $feature->price }}</h2></a>
+                                <a href="/shop"><h2>{{ $feature->presentPrice() }}</h2></a>
                                     <a href="/shop" class="btn-small">Now</a>
                                     <div class="product-action">
                                         <ul>
@@ -173,7 +176,9 @@
                                                 <a href="#"><i class="flaticon-bag"></i></a>
                                             </li>
 											<li>
-												<a href="#" title="Quick view" data-toggle="modal" data-target="#productModal"><i class="flaticon-view"></i></a>
+                                                <a href="#" title="Quick view" data-toggle="modal" data-target="#productModal" 
+                                                data-desc="{{$feature->description}}" data-image="{{asset('img/product/'.$feature->image)}}"
+                                                data-price="{{$feature->presentPrice()}}" data-name="{{$feature->name}}"><i class="flaticon-view"></i></a>
 											</li>
                                         </ul>
                                     </div>
@@ -195,156 +200,6 @@
                 </div>
             </div>        
         </div>        
-        <!--Featured Product Area End-->
-        <!-- Blog Area Start -->
-        {{-- <div class="blog-area">
-            <div class="container">
-                <div class="row">
-                    <div class="section-title">
-                        <h2>LATEST FROM BLOG</h2>
-                    </div>
-                     <div class="blog-list indicator-style">
-                         <div class="col-md-4">
-                             <div class="single-blog">
-                                <div class="blog-img">
-                                    <a href="blog.html"><img src="{{asset('img/blog/1.jpg')}}" alt=""></a>
-                                    <div class="blog-date">
-                                        <h2>20 <br>JAN<span>2016</span></h2>
-                                    </div>
-                                </div>
-                                 <div class="blog-content-info">
-                                     <h3>Lorem Ipsum is simply dummy </h3>
-                                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the scrambled. </p>
-                                     <div class="post-info pull-left">
-                                         <span class="post-author">
-                                             <label>By:</label>
-                                             <a href="#"><span>John Smith</span></a>
-                                         </span>
-                                         <span class="comment">
-                                             <i class="flaticon-social-3"></i>
-                                             <span>Comment  <strong>02</strong></span>
-                                         </span>
-                                     </div>
-                                     <div class="read-more pull-right">
-                                         <a href="#">Read More</a>
-                                     </div>
-                                 </div>
-                             </div>
-                         </div>
-                         <div class="col-md-4">
-                             <div class="single-blog">
-                                <div class="blog-img">
-                                    <a href="blog.html"><img src="{{asset('img/blog/2.jpg')}}" alt=""></a>
-                                    <div class="blog-date">
-                                        <h2>20 <br>JAN<span>2016</span></h2>
-                                    </div>
-                                </div>
-                                 <div class="blog-content-info">
-                                     <h3>Lorem Ipsum is simply dummy </h3>
-                                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the scrambled. </p>
-                                     <div class="post-info pull-left">
-                                         <span class="post-author">
-                                             <label>By:</label>
-                                             <a href="#"><span>John Smith</span></a>
-                                         </span>
-                                         <span class="comment">
-                                             <i class="flaticon-social-3"></i>
-                                             <span>Comment  <strong>02</strong></span>
-                                         </span>
-                                     </div>
-                                     <div class="read-more pull-right">
-                                         <a href="#">Read More</a>
-                                     </div>
-                                 </div>
-                             </div>
-                         </div>
-                         <div class="col-md-4">
-                             <div class="single-blog">
-                                <div class="blog-img">
-                                    <a href="blog.html"><img src="{{asset('img/blog/3.jpg')}}" alt=""></a>
-                                    <div class="blog-date">
-                                        <h2>20 <br>JAN<span>2016</span></h2>
-                                    </div>
-                                </div>
-                                 <div class="blog-content-info">
-                                     <h3>Lorem Ipsum is simply dummy </h3>
-                                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the scrambled. </p>
-                                     <div class="post-info pull-left">
-                                         <span class="post-author">
-                                             <label>By:</label>
-                                             <a href="#"><span>John Smith</span></a>
-                                         </span>
-                                         <span class="comment">
-                                             <i class="flaticon-social-3"></i>
-                                             <span>Comment  <strong>02</strong></span>
-                                         </span>
-                                     </div>
-                                     <div class="read-more pull-right">
-                                         <a href="#">Read More</a>
-                                     </div>
-                                 </div>
-                             </div>
-                         </div>
-                         <div class="col-md-4">
-                             <div class="single-blog">
-                                <div class="blog-img">
-                                    <a href="blog.html"><img src="{{asset('img/blog/1.jpg')}}" alt=""></a>
-                                    <div class="blog-date">
-                                        <h2>20 <br>JAN<span>2016</span></h2>
-                                    </div>
-                                </div>
-                                 <div class="blog-content-info">
-                                     <h3>Lorem Ipsum is simply dummy </h3>
-                                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the scrambled. </p>
-                                     <div class="post-info pull-left">
-                                         <span class="post-author">
-                                             <label>By:</label>
-                                             <a href="#"><span>John Smith</span></a>
-                                         </span>
-                                         <span class="comment">
-                                             <i class="flaticon-social-3"></i>
-                                             <span>Comment  <strong>02</strong></span>
-                                         </span>
-                                     </div>
-                                     <div class="read-more pull-right">
-                                         <a href="#">Read More</a>
-                                     </div>
-                                 </div>
-                             </div>
-                         </div>
-                         <div class="col-md-4">
-                             <div class="single-blog">
-                                <div class="blog-img">
-                                    <a href="blog.html"><img src="{{asset('img/blog/2.jpg')}}" alt=""></a>
-                                    <div class="blog-date">
-                                        <h2>20 <br>JAN<span>2016</span></h2>
-                                    </div>
-                                </div>
-                                 <div class="blog-content-info">
-                                     <h3>Lorem Ipsum is simply dummy </h3>
-                                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the scrambled. </p>
-                                     <div class="post-info pull-left">
-                                         <span class="post-author">
-                                             <label>By:</label>
-                                             <a href="#"><span>John Smith</span></a>
-                                         </span>
-                                         <span class="comment">
-                                             <i class="flaticon-social-3"></i>
-                                             <span>Comment  <strong>02</strong></span>
-                                         </span>
-                                     </div>
-                                     <div class="read-more pull-right">
-                                         <a href="#">Read More</a>
-                                     </div>
-                                 </div>
-                             </div>
-                         </div>
-                     </div>                   
-                </div>
-            </div>
-        </div> --}}
-        <!-- Blog Area End -->
-        <!--Testimonial Area Start-->
         <div class="testimonial-area section-padding">
             <div class="container">
                 <div class="row">
@@ -411,14 +266,14 @@
                         <div class="modal-body">
                             <div class="modal-product">
                                 <div class="product-images">
-                                    <div class="main-image images">
-                                        <img alt="" src="{{asset('img/new-product/quick-view.jpg')}}">
+                                    <div class="main-image images" id="image">
+                                        <img alt="" src="" id="photo">
                                     </div>
                                 </div>
                                 <div class="product-info">
-                                    <h1>Frame Princes Cut Diamond</h1>
-                                    <div class="price-box">
-                                        <p class="price"><span class="special-price"><span class="amount">$280.00</span></span></p>
+                                    <h1 id="name" name="name" value="name"></h1>
+                                    <div class="price-box" id="price">
+                                    <p class="price"><span class="special-price"><span class="amount"></span></span></p>
                                     </div>
                                     <a href="product-details.html" class="see-all">See all features</a>
                                     <div class="quick-add-to-cart">
@@ -429,8 +284,7 @@
                                             <button class="single_add_to_cart_button" type="submit">Add to cart</button>
                                         </form>
                                     </div>
-                                    <div class="quick-desc">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id nulla.
+                                    <div class="quick-desc" id="desc">
                                     </div>
                                     <div class="social-sharing">
                                         <div class="widget widget_socialsharing_widget">
@@ -452,4 +306,24 @@
             </div>
         </div>
         <!--End of Quickview Product-->
+@endsection
+
+@section('extra-js')
+    <script type="text/javascript">
+
+    $(function() {
+        $('#productModal').on("show.bs.modal", function (e) {
+
+            $("#name").html($(e.relatedTarget).data('name'));
+            $("#price").html($(e.relatedTarget).data('price'));
+            $("#desc").html($(e.relatedTarget).data('desc'));
+            $("#photo").attr("src", $(e.relatedTarget).data('image'));
+
+           /*  var price = document.getElementById("price");
+            var content = document.createTextNode("RM ");
+            
+            price.insertBefore(content, price.firstChild); */
+        });
+    });
+    </script>
 @endsection

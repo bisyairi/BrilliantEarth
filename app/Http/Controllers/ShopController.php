@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use App\Category;
+use App\ProductAttribute;
 use Illuminate\Http\Request;
 
 class ShopController extends Controller
@@ -45,15 +46,20 @@ class ShopController extends Controller
 
     public function show($slug)
     {
-        $product = Product::where('slug', $slug)->firstOrFail();
+        $product = Product::with('attributes')->where('slug', $slug)->firstOrFail();
         $mightAlsoLike = Product::where('slug', '!=', $slug)->mightAlsoLike()->get();
 
-        $stockLevel = getStockLevel($product->quantity);
+        // $stockLevel = getStockLevel($product->quantity);
 
-        return view('product')->with([
+        return view('pages.product')->with([
             'product' => $product,
-            'stockLevel' => $stockLevel,
+            // 'stockLevel' => $stockLevel,
             'mightAlsoLike' => $mightAlsoLike,
         ]);
     }
+
+    /* public function search(Request $request)
+    {
+        return view('pages.search-results');
+    } */
 }

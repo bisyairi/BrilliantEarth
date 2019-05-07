@@ -32,5 +32,3 @@ Route::get('/my-account', 'PagesController@myaccount');
 Route::get('/single-product', 'PagesController@singleproduct');
 Route::get('/thank-you', 'PagesController@thankyou');
 Route::get('/wishlist', 'PagesController@wishlist');
-
-
