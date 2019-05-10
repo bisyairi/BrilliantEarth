@@ -47,8 +47,9 @@ class ShopController extends Controller
     public function show($slug)
     {
         $product = Product::with('attributes')->where('slug', $slug)->firstOrFail();
+        // $product = json_decode(json_encode($product));
+        // echo "<pre>"; print_r($product); die;
         $mightAlsoLike = Product::where('slug', '!=', $slug)->mightAlsoLike()->get();
-
         // $stockLevel = getStockLevel($product->quantity);
 
         return view('pages.product')->with([
@@ -62,4 +63,16 @@ class ShopController extends Controller
     {
         return view('pages.search-results');
     } */
+
+    public function findProductSize(Request $request){
+        $data = ProductAttribute::select('size', 'gemstone', 'colour')->where('gemstone', $request->gemstone)->orWhere('colour', $request->colour)->take(100)->get();
+        
+        return response()->json($data);
+    }
+
+    public function findProductPrice(Request $request){
+        $price = ProductAttribute::select('price')->where('gemstone', $request->gemstone)->orWhere('colour', $request->colour)->first();
+
+        return response()->json($price);
+    }
 }

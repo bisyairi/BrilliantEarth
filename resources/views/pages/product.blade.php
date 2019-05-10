@@ -57,25 +57,38 @@
                         <h4>in stock</h4>
                         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </p>
                         <div class="single-product-price">
-                            <h2>{{$product->presentPrice()}}</h2>
+                            <h2 id="prodPrice" class="prodPrice">{{$product->presentPrice()}}</h2>
+                            {{-- <p><i>Normal Retail Price: {{$product->presentPrice()}}</i></p> --}}
                         </div>
-                        <p class="single-shop-select">
-                           <label>color</label>
-                            <select>
-                                <option>{{$product->size}}</option>
+                        
+                        
+                        <p class="single-shop-select" id="gem">
+                            <label>Gemstone</label>
+                            <select id="gemStone" class="prodGem">
+                                @foreach ($product->attributes as $gemstone)
+                                <option value="{{$gemstone->gemstone}}">{{$gemstone->gemstone}}</option>
+                                @endforeach
                             </select>
                         </p>
-                        <p class="single-shop-select">
-                           <label>Size</label>
-                            <select>
-                                <option>S</option>
-                                <option>M</option>
-                                <option>X</option>
-                                <option>XL</option>
-                                <option>2X</option>
-                                <option>3X</option>
+
+                        <p class="single-shop-select" id="colour">
+                            <label>Colour</label>
+                            <select id="productColour" class="prodColour">
+                                @foreach ($product->attributes as $colour)
+                                <option value="{{$colour->colour}}">{{$colour->colour}}</option>
+                                @endforeach
                             </select>
                         </p>
+
+                        <p class="single-shop-select" id="size">
+                            <label>Size</label>
+                            <select id="productSize" class="prodSize">
+                                @foreach ($product->attributes as $size)
+                                <option value="{{$size->size}}">{{$size->size}}</option>
+                                @endforeach
+                            </select>
+                        </p> 
+
                         <div class="product-attributes clearfix">
                             <span class="pull-left" id="quantity-wanted-p">
                                 <span class="dec qtybutton">-</span>
@@ -198,4 +211,180 @@
         </div>        
     </div>         
     <!--Related Product Area End-->
+@endsection
+
+@section('extra-js')
+
+    <script type="text/javascript">
+
+        $(document).ready(function(){
+
+            var map={};
+            
+            $('.prodGem option').each(function(){
+                var val=$(this).val();
+                
+                if( map[val] ){
+                    $(this).remove();
+                    return; // continue to next loop
+                }
+                
+                // Registering val to map list
+                map[val]=1;
+            });
+
+            $('.prodSize option').each(function(){
+                var val=$(this).val();
+                
+                if( map[val] ){
+                    $(this).remove();
+                    return; // continue to next loop
+                }
+                
+                // Registering val to map list
+                map[val]=1;
+            });
+
+            $('.prodColour option').each(function(){
+                var val=$(this).val();
+                
+                if( map[val] ){
+                    $(this).remove();
+                    return; // continue to next loop
+                }
+                
+                // Registering val to map list
+                map[val]=1;
+            });
+
+            $(".prodGem").val($(".prodGem option:first").val());
+            $(".prodColour").val($(".prodColour option:first").val());
+            $(".prodSize").val($(".prodSize option:first").val());
+            
+            if ($(".prodGem option[value!='']").length == 0) {
+                $("#gem").hide();
+            }
+            
+            if ($(".prodColour option[value!='']").length == 0) {
+                $("#colour").hide();
+            }
+
+            if ($(".prodSize option[value!='']").length == 0) {
+                $("#size").hide();
+            }
+
+            $(document).on('change','.prodGem',function(){
+                // console.log("lol");
+
+                var gemstone=$(this).val();
+                // console.log(prodId);
+                var div=$(this).parent();
+                
+                var op="";
+
+                $.ajax({
+                    type: 'get',
+                    url: '{!!URL::to('findProductSize')!!}',
+                    data: {'gemstone':gemstone},
+                    success:function(data){
+                        console.log('success');
+
+                        console.log(data);
+                        console.log(data.length);
+                        
+                        for(var i=0;i<data.length;i++){
+                            op+='<option value="'+data[i].size+'">'+data[i].size+'</option>';
+                        }
+                        
+                        div.find('.prodSize').html("");
+                        // div.find('.prodSize').append(op);
+                        $('.prodSize').html(op);
+
+                        $(".prodSize").attr('selectedIndex', 0);
+
+                    },
+                    error:function(){
+                        console.log('gg');
+                    }
+                });
+
+                $.ajax({
+                    type:'get',
+                    url:'{!!URL::to('findProductPrice')!!}',
+                    data:{'gemstone':gemstone},
+                    dataType:'json',//return data will be json
+                    success:function(data){
+                        console.log("price");
+                        console.log(data.price);
+
+                        // here price is coloumn name in products table data.coln name
+                        var price = (data.price/100).toFixed(2);
+
+                        document.getElementById("prodPrice").innerHTML = "RM"+price;
+
+                        // a.find('.prod_price').val(data.price);
+
+                    },
+                    error:function(){
+                    }
+                });
+            });
+
+            $(document).on('change','.prodColour',function(){
+                var colour=$(this).val();
+
+                var div=$(this).parent();
+
+                var op="";
+
+                $.ajax({
+                    type: 'get',
+                    url: '{!!URL::to('findProductSize')!!}',
+                    data: {'colour':colour},
+                    success:function(data){
+                        console.log('success');
+
+                        console.log(data);
+                        console.log(data.length);
+                        
+                        for(var i=0;i<data.length;i++){
+                            op+='<option value="'+data[i].size+'">'+data[i].size+'</option>';
+                        }
+                        
+                        div.find('.prodSize').html("");
+                        // div.find('.prodSize').append(op);
+                        $('.prodSize').html(op);
+
+                        $(".prodSize").attr('selectedIndex', 0);
+
+                    },
+                    error:function(){
+                        console.log('gg');
+                    }
+                });
+
+                $.ajax({
+                    type:'get',
+                    url:'{!!URL::to('findProductPrice')!!}',
+                    data:{'colour':colour},
+                    dataType:'json',//return data will be json
+                    success:function(data){
+                        console.log("price");
+                        console.log(data.price);
+
+                        // here price is coloumn name in products table data.coln name
+                        var price = (data.price/100).toFixed(2);
+
+                        document.getElementById("prodPrice").innerHTML = "RM"+price;
+
+                        // a.find('.prod_price').val(data.price);
+
+                    },
+                    error:function(){
+                        console.log('wp');
+                    }
+                });
+            });
+        });
+    </script>
 @endsection

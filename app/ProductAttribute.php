@@ -11,4 +11,9 @@ class ProductAttribute extends Model
     public function products(){
         return $this->belongsTo('App\Product');
     }
+
+    public function presentPrice()
+    {
+        return 'RM'.number_format($this->price / 100, 2);
+    }
 }

@@ -19,6 +19,9 @@ Route::get('/', 'LandingPageController@index')->name('landing-page');
 
 Route::get('/shop', 'ShopController@index')->name('shop.index');
 Route::get('/shop/{product}', 'ShopController@show')->name('shop.show');
+//get product attribute size
+Route::get('/findProductSize', 'ShopController@findProductSize');
+Route::get('/findProductPrice', 'ShopController@findProductPrice');
 
 Route::get('/cart', 'PagesController@cart');
 
@@ -32,3 +35,4 @@ Route::get('/my-account', 'PagesController@myaccount');
 Route::get('/single-product', 'PagesController@singleproduct');
 Route::get('/thank-you', 'PagesController@thankyou');
 Route::get('/wishlist', 'PagesController@wishlist');
+
