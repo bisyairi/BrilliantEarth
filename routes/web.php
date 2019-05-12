@@ -22,17 +22,22 @@ Route::get('/shop/{product}', 'ShopController@show')->name('shop.show');
 //get product attribute size
 Route::get('/findProductSize', 'ShopController@findProductSize');
 Route::get('/findProductPrice', 'ShopController@findProductPrice');
+Route::get('/findProductId', 'ShopController@findProductId');
 
-Route::get('/cart', 'PagesController@cart');
+Route::get('/cart', 'CartController@index')->name('cart.index');
+Route::post('/cart', 'CartController@store')->name('cart.store');
 
-Route::get('/about', 'PagesController@about');
+// Route::get('/checkout', 'CheckoutController@index')->name('checkout.index')->middleware('auth');
+// Route::post('/checkout', 'CheckoutController@store')->name('checkout.store');
 
-Route::get('/checkout', 'PagesController@checkout');
-Route::get('/contact-us', 'PagesController@contactus');
-Route::get('/login', 'PagesController@login');
-Route::get('/my-account', 'PagesController@myaccount');
 
-Route::get('/single-product', 'PagesController@singleproduct');
-Route::get('/thank-you', 'PagesController@thankyou');
-Route::get('/wishlist', 'PagesController@wishlist');
 
+// Route::get('/about', 'PagesController@about');
+
+// Route::get('/contact-us', 'PagesController@contactus');
+// Route::get('/login', 'PagesController@login');
+// Route::get('/my-account', 'PagesController@myaccount');
+
+// Route::get('/single-product', 'PagesController@singleproduct');
+// Route::get('/thank-you', 'PagesController@thankyou');
+// Route::get('/wishlist', 'PagesController@wishlist');

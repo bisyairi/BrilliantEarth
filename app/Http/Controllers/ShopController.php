@@ -10,12 +10,12 @@ use Illuminate\Http\Request;
 class ShopController extends Controller
 {
     public function index(){
-        
+
         $pagination = 9;
         $categories = Category::withCount('products')->get();
         $minprice = Product::min('price');
         $maxprice = Product::max('price');
-        
+
         if (request()->category) {
             $products = Product::with('categories')->whereHas('categories', function ($query) {
                 $query->where('slug', request()->category);
@@ -65,14 +65,20 @@ class ShopController extends Controller
     } */
 
     public function findProductSize(Request $request){
-        $data = ProductAttribute::select('size', 'gemstone', 'colour')->where('gemstone', $request->gemstone)->orWhere('colour', $request->colour)->take(100)->get();
-        
+        $data = ProductAttribute::select('size')->where('gemstone', $request->gemstone)->orWhere('colour', $request->colour)->take(100)->get();
+
         return response()->json($data);
     }
 
-    public function findProductPrice(Request $request){
+    public function findProductId(Request $request){
+        $prodid = ProductAttribute::select('id', 'size', 'price')->where('size', $request->size)->orWhere('gemstone', $request->gemstone)->orWhere('colour', $request->colour)->get();
+
+        return response()->json($prodid);
+    }
+
+    /* public function findProductPrice(Request $request){
         $price = ProductAttribute::select('price')->where('gemstone', $request->gemstone)->orWhere('colour', $request->colour)->first();
 
         return response()->json($price);
-    }
+    } */
 }

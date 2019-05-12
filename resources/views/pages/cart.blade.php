@@ -15,6 +15,7 @@
     <!--Cart Page Area Start-->
     <div class="shopping-cart-area section-padding">
         <div class="container">
+
             <div class="row">
                 <div class="col-md-12">
                     <div class="wishlist-table-area table-responsive">
@@ -33,18 +34,18 @@
                             <tbody>
                                 <tr>
                                     <td class="product-remove">
-                                        <a href="#">
-                                            <i class="fa fa-trash-o"></i>
-                                        </a>
+                                            <a>
+                                                <i class="fa fa-trash-o"></i>
+                                            </a>
                                     </td>
                                     <td class="product-image">
-                                        <a href="#">
-                                            <img src="img/product/1.jpg" alt="">
+                                        <a href="">
+                                            <img src="" alt="">
                                         </a>
                                     </td>
                                     <td class="t-product-name">
                                         <h3>
-                                            <a href="#">Skerts Dress</a>
+                                            <a href=""></a>
                                         </h3>
                                     </td>
                                     <td class="product-edit">
@@ -53,51 +54,21 @@
                                         </p>
                                     </td>
                                     <td class="product-unit-price">
-                                        <p>$ 100</p>
+                                        <p>RM</p>
                                     </td>
                                     <td class="product-quantity product-cart-details">
                                         <input type="number" value="1">
+
                                     </td>
                                     <td class="product-quantity">
-                                        <p>$ 100</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="product-remove">
-                                        <a href="#">
-                                            <i class="fa fa-trash-o"></i>
-                                        </a>
-                                    </td>
-                                    <td class="product-image">
-                                        <a href="#">
-                                            <img src="img/product/2.jpg" alt="">
-                                        </a>
-                                    </td>
-                                    <td class="t-product-name">
-                                        <h3>
-                                            <a href="#">Skerts Dress</a>
-                                        </h3>
-                                    </td>
-                                    <td class="product-edit">
-                                        <p>
-                                           <a href="#">Edit</a>
-                                        </p>
-                                    </td>
-                                    <td class="product-unit-price">
-                                        <p>$ 100</p>
-                                    </td>
-                                    <td class="product-quantity product-cart-details">
-                                        <input type="number" value="1">
-                                    </td>
-                                    <td class="product-quantity">
-                                        <p>$ 100</p>
+                                        <p>RM</p>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                     <div class="shopingcart-bottom-area">
-                        <a class="left-shoping-cart" href="#">CONTINUE SHOPPING</a>
+                        <a class="left-shoping-cart" href="/shop">CONTINUE SHOPPING</a>
                         <div class="shopingcart-bottom-area pull-right">
                             <a class="right-shoping-cart" href="#">CLEAR SHOPPING CART</a>
                             <a class="right-shoping-cart" href="#">UPDATE SHOPPING CART</a>
@@ -127,7 +98,7 @@
                 <div class="col-md-6 col-sm-6">
                     <div class="subtotal-main-area">
                         <div class="subtotal-area">
-                            <h2>SUBTOTAL<span>$ 200</span></h2>
+                            <h2>SUBTOTAL<span></span></h2>
                         </div>
                         <div class="subtotal-area">
                             <h2>GRAND TOTAL<span>$ 200</span></h2>

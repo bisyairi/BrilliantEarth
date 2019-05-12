@@ -21,8 +21,8 @@
                         <!-- Tab panes -->
                         <div class="tab-content">
                             <div role="tabpanel" class="tab-pane active" id="one">
-                                <a class="venobox" href="img/single-product/bg-1.jpg" data-gall="gallery" title="">
-                                    <img src="img/single-product/bg-1.jpg" alt="">
+                                <a class="venobox" href="{{asset('img/product/'.$product->image)}}" data-gall="gallery" title="">
+                                    <img src="{{asset('img/product/'.$product->image)}}" alt="">
                                 </a>
                             </div>
                             <div role="tabpanel" class="tab-pane" id="two">
@@ -53,18 +53,19 @@
                             <i class="fa fa-star icolor"></i>
                             <i class="fa fa-star"></i>
                         </div>
+
                         <h2>{{$product->name}}</h2>
-                        <h4>in stock</h4>
+                        {{-- <h4>{!! $stockLevel !!}</h4> --}}
                         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </p>
                         <div class="single-product-price">
                             <h2 id="prodPrice" class="prodPrice">{{$product->presentPrice()}}</h2>
+                            <input type="text" name="prodPrice2" id="prodPrice2" value="{{$product->price}}">
+                            <input type="text" name="prodId" id="prodId">
                             {{-- <p><i>Normal Retail Price: {{$product->presentPrice()}}</i></p> --}}
                         </div>
-                        
-                        
                         <p class="single-shop-select" id="gem">
                             <label>Gemstone</label>
-                            <select id="gemStone" class="prodGem">
+                            <select id="gemStone" class="product">
                                 @foreach ($product->attributes as $gemstone)
                                 <option value="{{$gemstone->gemstone}}">{{$gemstone->gemstone}}</option>
                                 @endforeach
@@ -73,7 +74,7 @@
 
                         <p class="single-shop-select" id="colour">
                             <label>Colour</label>
-                            <select id="productColour" class="prodColour">
+                            <select id="productColour" class="product">
                                 @foreach ($product->attributes as $colour)
                                 <option value="{{$colour->colour}}">{{$colour->colour}}</option>
                                 @endforeach
@@ -82,25 +83,25 @@
 
                         <p class="single-shop-select" id="size">
                             <label>Size</label>
-                            <select id="productSize" class="prodSize">
+                            <select id="productSize" class="product">
                                 @foreach ($product->attributes as $size)
                                 <option value="{{$size->size}}">{{$size->size}}</option>
                                 @endforeach
                             </select>
-                        </p> 
+                        </p>
 
                         <div class="product-attributes clearfix">
                             <span class="pull-left" id="quantity-wanted-p">
                                 <span class="dec qtybutton">-</span>
-                                <input type="text" value="1" class="cart-plus-minus-box">
-                                <span class="inc qtybutton">+</span>	
+                                <input id="quantity" type="text" value="1" class="cart-plus-minus-box">
+                                <span class="inc qtybutton">+</span>
                             </span>
-                           <span>
-                                <a class="cart-btn" href="cart.html">
-                                    <i class="flaticon-bag"></i>
-                                    <span>Add to Cart</span>
+                            <span>
+                               <a class="cart-btn">
+                                   <i class="flaticon-bag"></i>
+                                   <span>Add to Cart</span>
                                 </a>
-                           </span>
+                            </span>
                         </div>
                         <div class="add-to-wishlist">
                             <a class="wish-btn" href="cart.html">
@@ -163,7 +164,7 @@
                         </div>
                     </div>
                 </div>
-            </div>                
+            </div>
         </div>
     </div>
     <!-- Product Simple Area End -->
@@ -208,8 +209,8 @@
                     @endforeach
                 </div>
             </div>
-        </div>        
-    </div>         
+        </div>
+    </div>
     <!--Related Product Area End-->
 @endsection
 
@@ -220,66 +221,67 @@
         $(document).ready(function(){
 
             var map={};
-            
-            $('.prodGem option').each(function(){
+
+            $('#gemStone option').each(function(){
                 var val=$(this).val();
-                
+
                 if( map[val] ){
                     $(this).remove();
                     return; // continue to next loop
                 }
-                
+
                 // Registering val to map list
                 map[val]=1;
             });
 
-            $('.prodSize option').each(function(){
+            $('#productSize option').each(function(){
                 var val=$(this).val();
-                
+
                 if( map[val] ){
                     $(this).remove();
                     return; // continue to next loop
                 }
-                
+
                 // Registering val to map list
                 map[val]=1;
             });
 
-            $('.prodColour option').each(function(){
+            $('#productColour option').each(function(){
                 var val=$(this).val();
-                
+
                 if( map[val] ){
                     $(this).remove();
                     return; // continue to next loop
                 }
-                
+
                 // Registering val to map list
                 map[val]=1;
             });
 
-            $(".prodGem").val($(".prodGem option:first").val());
-            $(".prodColour").val($(".prodColour option:first").val());
-            $(".prodSize").val($(".prodSize option:first").val());
-            
-            if ($(".prodGem option[value!='']").length == 0) {
+            $("#gemStone").val($("#gemStone option:first").val());
+            $("#prodcutColour").val($("#productColour option:first").val());
+            $("#productSize").val($("#productSize option:first").val());
+
+            if ($("#gemStone option[value!='']").length == 0) {
                 $("#gem").hide();
             }
-            
-            if ($(".prodColour option[value!='']").length == 0) {
+
+            if ($("#productColour option[value!='']").length == 0) {
                 $("#colour").hide();
             }
 
-            if ($(".prodSize option[value!='']").length == 0) {
+            if ($("#productSize option[value!='']").length == 0) {
                 $("#size").hide();
             }
 
-            $(document).on('change','.prodGem',function(){
+            /* $(document).on('change','#gemStone',function(){
                 // console.log("lol");
 
                 var gemstone=$(this).val();
+                var size=$("#productSize").val();
                 // console.log(prodId);
                 var div=$(this).parent();
-                
+
                 var op="";
 
                 $.ajax({
@@ -287,20 +289,16 @@
                     url: '{!!URL::to('findProductSize')!!}',
                     data: {'gemstone':gemstone},
                     success:function(data){
-                        console.log('success');
 
-                        console.log(data);
-                        console.log(data.length);
-                        
                         for(var i=0;i<data.length;i++){
                             op+='<option value="'+data[i].size+'">'+data[i].size+'</option>';
                         }
-                        
-                        div.find('.prodSize').html("");
-                        // div.find('.prodSize').append(op);
-                        $('.prodSize').html(op);
 
-                        $(".prodSize").attr('selectedIndex', 0);
+                        div.find('#productSize').html("");
+                        // div.find('.prodSize').append(op);
+                        $('#productSize').html(op);
+
+                        $("#productSize").attr('selectedIndex', 0);
 
                     },
                     error:function(){
@@ -314,13 +312,13 @@
                     data:{'gemstone':gemstone},
                     dataType:'json',//return data will be json
                     success:function(data){
-                        console.log("price");
-                        console.log(data.price);
 
                         // here price is coloumn name in products table data.coln name
                         var price = (data.price/100).toFixed(2);
 
                         document.getElementById("prodPrice").innerHTML = "RM"+price;
+                        document.getElementById("prodPrice2").value = data.price;
+                        // document.getElementById("prodId").value = data.id;
 
                         // a.find('.prod_price').val(data.price);
 
@@ -328,9 +326,9 @@
                     error:function(){
                     }
                 });
-            });
+            }); */
 
-            $(document).on('change','.prodColour',function(){
+            /* $(document).on('change','#productColour',function(){
                 var colour=$(this).val();
 
                 var div=$(this).parent();
@@ -342,20 +340,16 @@
                     url: '{!!URL::to('findProductSize')!!}',
                     data: {'colour':colour},
                     success:function(data){
-                        console.log('success');
 
-                        console.log(data);
-                        console.log(data.length);
-                        
                         for(var i=0;i<data.length;i++){
                             op+='<option value="'+data[i].size+'">'+data[i].size+'</option>';
                         }
-                        
-                        div.find('.prodSize').html("");
-                        // div.find('.prodSize').append(op);
-                        $('.prodSize').html(op);
 
-                        $(".prodSize").attr('selectedIndex', 0);
+                        div.find('#productSize').html("");
+
+                        $('#productSize').html(op);
+
+                        $("#productSize").attr('selectedIndex', 0);
 
                     },
                     error:function(){
@@ -369,13 +363,12 @@
                     data:{'colour':colour},
                     dataType:'json',//return data will be json
                     success:function(data){
-                        console.log("price");
-                        console.log(data.price);
 
                         // here price is coloumn name in products table data.coln name
                         var price = (data.price/100).toFixed(2);
 
                         document.getElementById("prodPrice").innerHTML = "RM"+price;
+                        document.getElementById("prodPrice2").value = data.price;
 
                         // a.find('.prod_price').val(data.price);
 
@@ -384,7 +377,65 @@
                         console.log('wp');
                     }
                 });
+            }); */
+
+            $(document).on('change','.product',function(){
+                var size=$("#productSize").val();
+                var gemstone=$("#gemStone").val();
+                var colour=$("#productColour").val();
+
+                console.log(gemstone, colour, size);
+
+                var div1=$("#gemStone").parent();
+                var div2=$("#productColour").parent();
+
+                var op="";
+
+                $.ajax({
+                    type: 'get',
+                    url: '{!!URL::to('findProductSize')!!}',
+                    data: {'gemstone':gemstone, 'colour':colour},
+                    success:function(data){
+
+                        for(var i=0;i<data.length;i++){
+                            op+='<option value="'+data[i].size+'">'+data[i].size+'</option>';
+                        }
+
+                        div1.find('#productSize').html("");
+                        div2.find('#productSize').html("");
+
+                        $('#productSize').html(op);
+
+                        $("#productSize").attr('selectedIndex', 0);
+
+                    },
+                    error:function(){
+                        console.log('gg');
+                    }
+                });
+
+                $.ajax({
+                    type: 'get',
+                    url: '{!!URL::to('findProductId')!!}',
+                    data: {'size':size, 'gemstone':gemstone, 'colour':colour},
+                    dataType:'json',
+                    success:function(data){
+                        // document.getElementById("prodId").value = data.id;
+                        console.log(data);
+
+                        document.getElementById("prodId").value = data.id;
+
+                        var price = (data.price/100).toFixed(2);
+
+                        document.getElementById("prodPrice").innerHTML = "RM"+price;
+                        document.getElementById("prodPrice2").value = data.price;
+                    },
+                    error:function(){
+                        console.log('cuba lagi');
+                    }
+                });
             });
         });
+
     </script>
 @endsection
