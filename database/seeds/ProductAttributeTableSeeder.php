@@ -20,7 +20,7 @@ class ProductAttributeTableSeeder extends Seeder
             'colour' => '',
             'price' => '19700',
         ]);
-        
+
         ProductAttribute::create([
             'product_id' => '1',
             'sku' => 'SKU-SRCitrine-11',
@@ -199,7 +199,7 @@ class ProductAttributeTableSeeder extends Seeder
             'colour' => 'Yellow Sapphire',
             'price' => '9900',
         ]);
-        
+
         ProductAttribute::create([
             'product_id' => '5',
             'sku' => 'SKU-FYBTopaz-10.5',

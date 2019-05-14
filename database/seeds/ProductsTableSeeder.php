@@ -16,7 +16,7 @@ class ProductsTableSeeder extends Seeder
             'name' => 'SERPENTINE RING',
             'slug' => 'serpentine-ring',
             'details' => 'in stock',
-            'price' => '197',
+            'price' => '19700',
             'description' => '<p>Ring for your beautiful soul.</p>
             <p>With the design of faceted gemstones, easily create an elegant look for your day.</p>
             <ul>
@@ -39,7 +39,7 @@ class ProductsTableSeeder extends Seeder
             'name' => 'LOVE KNOT ROSE RING PENDANT',
             'slug' => 'loveknot-rose-ring-pendant',
             'details' => 'in stock',
-            'price' => '249',
+            'price' => '24900',
             'description' => '<p>LOVE ME KNOT collection - Let her know your love for her never ends, she is your sunshine as she brightens up your life everday.</p>
             <p>This latest collection is a two piece – both a ring and a pendant in one, featuring natural diamond which represents determination and forever. It can be worn in two ways, as a pendant on a chain or flip the piece around, as a ring.</p>
             <p>This Diamond collection is designed to look effortlessly shiny and stylish on her.</p>
@@ -64,7 +64,7 @@ class ProductsTableSeeder extends Seeder
             'name' => 'HEART SPARKS RING',
             'slug' => 'heart-sparks-ring',
             'details' => 'in stock',
-            'price' => '122',
+            'price' => '12200',
             'description' => '<p>Heart Sparks Ring features a shimmering Heart Shape Cubic Zirconia stone as the center piece.</p>
             <p>A modern and elegant design that enhances the beauty of your look.</p>
             <ul>
@@ -87,7 +87,7 @@ class ProductsTableSeeder extends Seeder
             'name' => 'BEADS OF WISDOM RING',
             'slug' => 'beads-of-wisdom-ring',
             'details' => 'in stock',
-            'price' => '99',
+            'price' => '9900',
             'description' => '<p>Be a lady of wisdom.</p>
             <p>A design that is both feminine and sophisticated, this unique ring is the perfect complement for parties with bubbly drinks, and lace-edged outfits.</p>
             <ul>
@@ -111,7 +111,7 @@ class ProductsTableSeeder extends Seeder
             'name' => 'FYB TOPAZ RING',
             'slug' => 'fyb-topaz-ring',
             'details' => 'in stock',
-            'price' => '188',
+            'price' => '18800',
             'description' => '<p>Follow after what fuels you to be a better, happier person.</p>
             <p>It will only lead you to discover doors that open to infinite possibilities.</p>
             <p>This Blue Topaz ring represents Honesty and Communication.</p>
@@ -135,7 +135,7 @@ class ProductsTableSeeder extends Seeder
             'name' => 'KHREE RING',
             'slug' => 'darling-enlight-diamond-ring',
             'details' => 'in stock',
-            'price' => '159',
+            'price' => '15900',
             'description' => '<p>Ring for your beautiful soul.</p>
             <p>With the design of faceted heart shape gemstones, easily create an elegant look for your day.</p>
             <ul>
@@ -158,7 +158,7 @@ class ProductsTableSeeder extends Seeder
             'name' => 'CLAW-PINCHED RING',
             'slug' => 'claw-pinched-ring',
             'details' => 'in stock',
-            'price' => '244',
+            'price' => '24400',
             'description' => '<p>This modern interpretation of a tension-set ring is enforced with two thick, solid claws gripping a natural gemstone.</p>
             <p>This ring favours bold and lively young women. Rock this look with sharp slacks or a sleek LBD, and don’t forget your smart stilettos.</p>
             <ul>
@@ -180,7 +180,7 @@ class ProductsTableSeeder extends Seeder
             'name' => 'VISION RING',
             'slug' => 'vision-ring',
             'details' => 'in stock',
-            'price' => '149',
+            'price' => '14900',
             'description' => '<p>Vision ring features shimmering Cubic Zirconia stones. A symbol of eternity.</p>
             <p>Simple yet elegant. A modern design that enhances the beauty of your look.</p>
             <p>You can wear the ring with any position you like, with the arrow up or down.</p>
@@ -204,7 +204,7 @@ class ProductsTableSeeder extends Seeder
             'name' => 'MINI CABOCHON SOLITAIRE RING',
             'slug' => 'mini-cabochon-solitaire-ring',
             'details' => 'in stock',
-            'price' => '99',
+            'price' => '9900',
             'description' => '<p>Less can do more, as observed in the trends of miniskirts and macarons.</p>
             <p>This ring is a tease—a dainty but bright natural gemstone, cute as a button, in a classic four-claw setting.</p>
             <p>An effortless nip of fun that you can bring to any outfit. Stack them together to create a miniature candy land.</p>
@@ -227,7 +227,7 @@ class ProductsTableSeeder extends Seeder
             'name' => 'FYB SAPPHIRE RING',
             'slug' => 'fyb-sapphire-ring',
             'details' => 'in stock',
-            'price' => '197',
+            'price' => '19700',
             'description' => '<p>Follow after what fuels you to be a better, happier person.</p>
             <p>It will only lead you to discover doors that open to infinite possibilities.</p>
             <p>This Sapphire ring represents Peace and Joy.</p>
@@ -251,7 +251,7 @@ class ProductsTableSeeder extends Seeder
             'name' => 'Sapphire Rose Earrings',
             'slug' => 'sapphire-rose-earrings',
             'details'=> 'in stock',
-            'price' => '249',
+            'price' => '24900',
             'description' => '<p>SAPPHIRE ROSE earrings with Pink Sapphire in the heart of the flower and Emerald leaves symbolise gratitude, grace, admiration, and joy.</p>
             <p>Ladylike floral designs inspired by delicate flowers from the secret garden because every girl is like a flower - a soul blossoming in nature.</p>
             <ul>
@@ -270,12 +270,12 @@ class ProductsTableSeeder extends Seeder
             'status' => '',
             'status_desc' => '',
         ]);
-        
+
         Product::create([
             'name' => 'Diamond Sakura Earrings',
             'slug' => 'diamond-sakura-earrings',
             'details'=> 'in stock',
-            'price' => '279',
+            'price' => '27900',
             'description' => '<p>DIAMOND SAKURA earrings set with single Diamonds represents the fragility and the beauty of life.</p><br><p>Ladylike floral designs inspired by delicate flowers from the secret garden because every girl is like a flower - a soul blossoming in nature.</p>
             <p>Sold in limited pieces.</p>
             <ul>
@@ -298,7 +298,7 @@ class ProductsTableSeeder extends Seeder
             'name' => 'Topaz Love Earrings',
             'slug' => 'topaz-love-earrings',
             'details'=> 'in stock',
-            'price' => '299',
+            'price' => '29900',
             'description' => '<p>Petite Paradise is a collection with classic pieces designed for the ambitious, passionately fearless woman.</p><p>Twinkling Blue Topaz in the shade of a London Blue is a darker cobalt shade. Its electric blue colour makes it attractive and easy to match with everyday outfits.  So make love, not war, the Blue Topaz represents creativity to conquer everyday challenges.</p>
             <ul>
                 <li>Material: 925 Sterling Silver</li>
@@ -320,7 +320,7 @@ class ProductsTableSeeder extends Seeder
             'name' => 'Garnet Love Earrings',
             'slug' => 'garnet-love-earrings',
             'details'=> 'in stock',
-            'price' => '239',
+            'price' => '23900',
             'description' => '<p>Petite Paradise is a collection with classic pieces designed for the ambitious, passionately fearless woman.</p>
             <p>They say the prettiest people are the ones who are in love. The Red Garnet represents positivity and surrounded by a star-like twinkle of sparkling stones, this piece will attract all the love you need.</p><br>
             <ul>
@@ -343,7 +343,7 @@ class ProductsTableSeeder extends Seeder
             'name' => 'Origami Princess Earrings',
             'slug' => 'origami-princess-earrings',
             'details'=> 'in stock',
-            'price' => '169',
+            'price' => '16900',
             'description' => '<p>Inspired by the Japanese papercraft, this collection plays with angles, transforming origami inspirations into wearable, chic pieces of art.</p>
             <ul>
                 <li>Material: 925 Sterling Silver</li>
@@ -365,7 +365,7 @@ class ProductsTableSeeder extends Seeder
             'name' => 'Diamond Angel Pendant',
             'slug' => 'diamond-angel-pendant',
             'details'=> 'in stock',
-            'price' => '199',
+            'price' => '19900',
             'description' => '<p>A happy, chubby creature in a rose gold dress, she holds a shining natural Diamond in her hands, wishing you a safe and loving holiday season.</p>
             <p>It is also a wonderful present for someone you care enough about them to want an angel to watch over and guarding them forever.</p>
             <p>Diamond Angel Pendant is a dual-function piece – it may be worn as a pendant on a necklace or as a charm on a bracelet or bangle.</p>
@@ -390,7 +390,7 @@ class ProductsTableSeeder extends Seeder
             'name' => 'Mesh Chain 45cm',
             'slug' => 'mesh-chain-45cm',
             'details'=> 'in stock',
-            'price' => '103',
+            'price' => '10300',
             'description' => '<p>Get this chain to match with any of your favourite pendants.</p>
             <ul>
                 <li>Material: 925 Sterling Silver</li>

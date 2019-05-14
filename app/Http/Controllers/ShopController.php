@@ -65,20 +65,31 @@ class ShopController extends Controller
     } */
 
     public function findProductSize(Request $request){
-        $data = ProductAttribute::select('size')->where('gemstone', $request->gemstone)->orWhere('colour', $request->colour)->take(100)->get();
+        $data = ProductAttribute::select('id', 'products_id', 'size', 'gemstone')
+        ->where('gemstone', $request->gemstone)
+        ->orWhere('colour', $request->colour)
+        ->take(100)->get();
 
         return response()->json($data);
     }
 
     public function findProductId(Request $request){
-        $prodid = ProductAttribute::select('id', 'size', 'price')->where('size', $request->size)->orWhere('gemstone', $request->gemstone)->orWhere('colour', $request->colour)->get();
+        $prodid = ProductAttribute::select('id', 'size', 'price', 'gemstone', 'colour', 'sku')
+        ->where('size', $request->size)
+        ->where(function($query) use($request){
+            $query
+            ->where('gemstone', $request->gemstone)
+            ->orWhere('colour', $request->colour);})
+            ->get();
 
         return response()->json($prodid);
     }
 
-    /* public function findProductPrice(Request $request){
-        $price = ProductAttribute::select('price')->where('gemstone', $request->gemstone)->orWhere('colour', $request->colour)->first();
+    public function findProductPrice(Request $request){
+        $price = ProductAttribute::select('price', 'gemstone')
+        ->where('gemstone', $request->gemstone)
+        ->orWhere('colour', $request->colour)->first();
 
         return response()->json($price);
-    } */
+    }
 }

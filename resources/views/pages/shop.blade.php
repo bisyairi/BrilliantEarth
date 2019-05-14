@@ -39,7 +39,7 @@
                                     <div class="price_slider_amount">
                                         <form action="{{ route('shop.index') }}" method="GET">
                                             <input type="text" id="amount" name="price" placeholder="Add Your Price" />
-                                            <input type="submit" value="SEARCH" /> 
+                                            <input type="submit" value="SEARCH" />
                                         </form>
                                     </div>
                                 </div>
@@ -114,7 +114,7 @@
                                            <div class="single-product-content">
                                               <div class="left-content pull-left">
                                                   <a href="{{ route('shop.show', $product->slug) }}"><h2>{{ $product->name }}</h2></a>
-                                                   <span class="new-price">{{ $product->presentPrice() }}</span>                                                     
+                                                   <span class="new-price">{{ $product->presentPrice() }}</span>
                                               </div>
                                               <div class="right-content pull-right">
                                                   <a href="{{ route('shop.show', $product->slug) }}"><i class="flaticon-bag"></i></a>
@@ -131,8 +131,8 @@
                                         @foreach ($products as $product)
                                         <div class="shop-list-single">
                                             <div class="shop-list-left">
-                                                <a href="#"><img style="width:270px; height:345px" src="{{asset('img/product/'.$product->image)}}" alt="" /></a>                                          
-                                            </div>  
+                                                <a href="#"><img style="width:270px; height:345px" src="{{asset('img/product/'.$product->image)}}" alt="" /></a>
+                                            </div>
                                             <div class="shop-list-right">
                                                 <div class="left-content">
                                                     <a href="#"><h2>{{$product->name}}</h2></a>

@@ -16,113 +16,129 @@
     <div class="product-simple-area">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 col-sm-7">
-                    <div class="single-product-image-inner">
-                        <!-- Tab panes -->
-                        <div class="tab-content">
-                            <div role="tabpanel" class="tab-pane active" id="one">
-                                <a class="venobox" href="{{asset('img/product/'.$product->image)}}" data-gall="gallery" title="">
-                                    <img src="{{asset('img/product/'.$product->image)}}" alt="">
-                                </a>
+                <form action="{{route('cart.store')}}" method="POST">
+                    {{ csrf_field() }}
+                    <div class="col-md-6 col-sm-7">
+                        <div class="single-product-image-inner">
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane active" id="one">
+                                    <a class="venobox" href="{{asset('img/product/'.$product->image)}}" data-gall="gallery" title="">
+                                        <img src="{{asset('img/product/'.$product->image)}}" alt="">
+                                    </a>
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id="two">
+                                    <a class="venobox" href="img/single-product/bg-2.jpg" data-gall="gallery" title="">
+                                        <img src="img/single-product/bg-2.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id="three">
+                                    <a class="venobox" href="img/single-product/bg-3.jpg" data-gall="gallery" title="">
+                                        <img src="img/single-product/bg-3.jpg" alt="">
+                                    </a>
+                                </div>
                             </div>
-                            <div role="tabpanel" class="tab-pane" id="two">
-                                <a class="venobox" href="img/single-product/bg-2.jpg" data-gall="gallery" title="">
-                                    <img src="img/single-product/bg-2.jpg" alt="">
-                                </a>
-                            </div>
-                            <div role="tabpanel" class="tab-pane" id="three">
-                                <a class="venobox" href="img/single-product/bg-3.jpg" data-gall="gallery" title="">
-                                    <img src="img/single-product/bg-3.jpg" alt="">
-                                </a>
-                            </div>
-                        </div>
-                        <!-- Nav tabs -->
-                        <ul class="product-tabs" role="tablist">
-                            <li role="presentation" class="active"><a href="#one" aria-controls="one" role="tab" data-toggle="tab"><img src="img/single-product/1.jpg" alt=""></a></li>
-                            <li role="presentation"><a href="#two" aria-controls="two" role="tab" data-toggle="tab"><img src="img/single-product/2.jpg" alt=""></a></li>
-                            <li role="presentation"><a href="#three" aria-controls="three" role="tab" data-toggle="tab"><img src="img/single-product/3.jpg" alt=""></a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-offset-1 col-md-5 col-sm-5">
-                    <div class="single-product-details">
-                        <div class="list-pro-rating">
-                            <i class="fa fa-star icolor"></i>
-                            <i class="fa fa-star icolor"></i>
-                            <i class="fa fa-star icolor"></i>
-                            <i class="fa fa-star icolor"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-
-                        <h2>{{$product->name}}</h2>
-                        {{-- <h4>{!! $stockLevel !!}</h4> --}}
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </p>
-                        <div class="single-product-price">
-                            <h2 id="prodPrice" class="prodPrice">{{$product->presentPrice()}}</h2>
-                            <input type="text" name="prodPrice2" id="prodPrice2" value="{{$product->price}}">
-                            <input type="text" name="prodId" id="prodId">
-                            {{-- <p><i>Normal Retail Price: {{$product->presentPrice()}}</i></p> --}}
-                        </div>
-                        <p class="single-shop-select" id="gem">
-                            <label>Gemstone</label>
-                            <select id="gemStone" class="product">
-                                @foreach ($product->attributes as $gemstone)
-                                <option value="{{$gemstone->gemstone}}">{{$gemstone->gemstone}}</option>
-                                @endforeach
-                            </select>
-                        </p>
-
-                        <p class="single-shop-select" id="colour">
-                            <label>Colour</label>
-                            <select id="productColour" class="product">
-                                @foreach ($product->attributes as $colour)
-                                <option value="{{$colour->colour}}">{{$colour->colour}}</option>
-                                @endforeach
-                            </select>
-                        </p>
-
-                        <p class="single-shop-select" id="size">
-                            <label>Size</label>
-                            <select id="productSize" class="product">
-                                @foreach ($product->attributes as $size)
-                                <option value="{{$size->size}}">{{$size->size}}</option>
-                                @endforeach
-                            </select>
-                        </p>
-
-                        <div class="product-attributes clearfix">
-                            <span class="pull-left" id="quantity-wanted-p">
-                                <span class="dec qtybutton">-</span>
-                                <input id="quantity" type="text" value="1" class="cart-plus-minus-box">
-                                <span class="inc qtybutton">+</span>
-                            </span>
-                            <span>
-                               <a class="cart-btn">
-                                   <i class="flaticon-bag"></i>
-                                   <span>Add to Cart</span>
-                                </a>
-                            </span>
-                        </div>
-                        <div class="add-to-wishlist">
-                            <a class="wish-btn" href="cart.html">
-                                <i class="flaticon-favorite"></i>
-                                <span>ADD TO WISHLIST</span>
-                            </a>
-                        </div>
-                        <div class="single-product-categories">
-                           <label>Categories:</label>
-                            <span>Girls Optical, Large ( Ages 9- 14 ), Small ( Ages 2-8 ).</span>
-                        </div>
-                        <div id="product-comments-block-extra">
-                            <ul class="comments-advices">
-                                <li>
-                                    <a href="#" class="open-comment-form">Write a review</a>
-                                </li>
+                            <!-- Nav tabs -->
+                            <ul class="product-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#one" aria-controls="one" role="tab" data-toggle="tab"><img src="img/single-product/1.jpg" alt=""></a></li>
+                                <li role="presentation"><a href="#two" aria-controls="two" role="tab" data-toggle="tab"><img src="img/single-product/2.jpg" alt=""></a></li>
+                                <li role="presentation"><a href="#three" aria-controls="three" role="tab" data-toggle="tab"><img src="img/single-product/3.jpg" alt=""></a></li>
                             </ul>
                         </div>
                     </div>
-                </div>
+
+                    <div class="col-md-offset-1 col-md-5 col-sm-5">
+                        <div class="single-product-details">
+                            <div class="list-pro-rating">
+                                <i class="fa fa-star icolor"></i>
+                                <i class="fa fa-star icolor"></i>
+                                <i class="fa fa-star icolor"></i>
+                                <i class="fa fa-star icolor"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+
+                            <h2>{{$product->name}}</h2>
+                            {{-- <h4>{!! $stockLevel !!}</h4> --}}
+                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </p>
+                            <div class="single-product-price">
+                                <h2 id="prodPrice" class="prodPrice">{{$product->presentPrice()}}</h2>
+                                {{-- <p><i>Normal Retail Price: {{$product->presentPrice()}}</i></p> --}}
+                            </div>
+                                <input type="text" name="price" id="prodPrice2">
+                                <input type="text" name="id" id="prodId">
+                                <input type="text" name="id2" id="productId" value="{{$product->id}}">
+                                <input type="text" name="name" id="prodName" value="{{$product->name}}">
+                                <input type="text" name="slug" id="prodSlug" value="{{$product->slug}}">
+                                <input type="text" name="sku" id="prodSku">
+
+                            <p class="single-shop-select" id="gem">
+                                <label>Gemstone</label>
+                                <select id="gemStone" class="product">
+                                    @foreach ($product->attributes as $gemstone)
+                                    <option value="{{$gemstone->gemstone}}">{{$gemstone->gemstone}}</option>
+                                    @endforeach
+                                </select>
+                                <input type="text" name="gemstone" id="gemStone2" />
+                            </p>
+
+                            <p class="single-shop-select" id="colour">
+                                <label>Colour</label>
+                                <select id="productColour" class="product">
+                                    @foreach ($product->attributes as $colour)
+                                    <option value="{{$colour->colour}}">{{$colour->colour}}</option>
+                                    @endforeach
+                                </select>
+                                <input type="text" name="colour" id="colour2" />
+                            </p>
+
+                            <p class="single-shop-select" id="size">
+                                <label>Size</label>
+                                <select id="productSize" class="product">
+                                    <option value="0" disabled="true" selected="true">Select Size</option>
+                                    @foreach ($product->attributes as $size)
+                                    <option value="{{$size->size}}">{{$size->size}}</option>
+                                    @endforeach
+                                </select>
+                                <input type="text" name="size" id="size2" />
+                            </p>
+
+                            <div class="product-attributes clearfix">
+                                <span class="pull-left" id="quantity-wanted-p">
+                                    <span class="dec qtybutton">-</span>
+                                    <input id="quantity" name="qty" value="1" type="text" class="cart-plus-minus-box">
+                                    <span class="inc qtybutton">+</span>
+                                </span>
+                                <span>
+                                <a class="cart-btn">
+                                    <i class="flaticon-bag"></i>
+                                    <span class="submit-span">Add to Cart</span>
+                                </a>
+                                </span>
+                            </div>
+
+                            <div class="add-to-wishlist">
+                                <a class="wish-btn" href="cart.html">
+                                    <i class="flaticon-favorite"></i>
+                                    <span>ADD TO WISHLIST</span>
+                                </a>
+                            </div>
+                            <div class="single-product-categories">
+                            <label>Categories:</label>
+                                <span>Girls Optical, Large ( Ages 9- 14 ), Small ( Ages 2-8 ).</span>
+                            </div>
+                            <div id="product-comments-block-extra">
+                                <ul class="comments-advices">
+                                    <li>
+                                        <a href="#" class="open-comment-form">Write a review</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
             </div>
+
             <div class="row">
                 <div class="col-md-9">
                     <div class="p-details-tab-content section-padding-2">
@@ -220,6 +236,12 @@
 
         $(document).ready(function(){
 
+            var spanSubmit = $('.submit-span');
+
+            spanSubmit.on('click', function() {
+                $(this).closest('form').submit();
+            });
+
             var map={};
 
             $('#gemStone option').each(function(){
@@ -274,7 +296,160 @@
                 $("#size").hide();
             }
 
-            /* $(document).on('change','#gemStone',function(){
+            $(document).on('change', '#gemStone', function(){
+                var gemstone=$(this).val();
+
+                var div=$(this).parent();
+
+                var op="";
+
+                $.ajax({
+                    type: 'get',
+                    url: '{!!URL::to('findProductSize')!!}',
+                    data: {'gemstone':gemstone},
+                    success:function(data){
+
+                        // console.log(data);
+                        op+='<option value="0" selected disabled>Select Size</option>';
+
+                        for(var i=0;i<data.length;i++){
+                            op+='<option value="'+data[i].size+'">'+data[i].size+'</option>';
+                        }
+
+                        div.find('#productSize').html("");
+                        // div2.find('#productSize').html("");
+
+                        $('#productSize').html(op);
+
+                        $("#productSize").attr('selectedIndex', 0);
+
+                    },
+                    error:function(){
+                        console.log('gg');
+                    }
+                });
+
+                $.ajax({
+                    type:'get',
+                    url:'{!!URL::to('findProductPrice')!!}',
+                    data:{'gemstone':gemstone},
+                    dataType:'json',//return data will be json
+                    success:function(data){
+
+                        // console.log(data);
+
+                        // here price is coloumn name in products table data.coln name
+                        var price = (data.price/100).toFixed(2);
+
+                        document.getElementById("prodPrice").innerHTML = "RM"+price;
+                        document.getElementById("prodPrice2").value = data.price;
+
+                        // a.find('.prod_price').val(data.price);
+
+                    },
+                    error:function(){
+                        console.log('wp');
+                    }
+                });
+            });
+
+            $(document).on('change', '#productColour', function(){
+                var colour=$(this).val();
+
+                var div=$(this).parent();
+
+                var op="";
+
+                $.ajax({
+                    type: 'get',
+                    url: '{!!URL::to('findProductSize')!!}',
+                    data: {'colour':colour},
+                    success:function(data){
+
+                        // console.log(data);
+                        op+='<option value="0" selected disabled>Select Size</option>';
+
+                        for(var i=0;i<data.length;i++){
+                            op+='<option value="'+data[i].size+'">'+data[i].size+'</option>';
+                        }
+
+                        div.find('#productSize').html("");
+                        // div2.find('#productSize').html("");
+
+                        $('#productSize').html(op);
+
+                        $("#productSize").attr('selectedIndex', 0);
+
+                    },
+                    error:function(){
+                        console.log('gg');
+                    }
+                });
+
+                $.ajax({
+                    type:'get',
+                    url:'{!!URL::to('findProductPrice')!!}',
+                    data:{'colour':colour},
+                    dataType:'json',//return data will be json
+                    success:function(data){
+
+                        // console.log(data);
+
+                        // here price is coloumn name in products table data.coln name
+                        var price = (data.price/100).toFixed(2);
+
+                        document.getElementById("prodPrice").innerHTML = "RM"+price;
+                        document.getElementById("prodPrice2").value = data.price;
+
+                        // a.find('.prod_price').val(data.price);
+
+                    },
+                    error:function(){
+                        console.log('wp');
+                    }
+                });
+            });
+
+            $(document).on('change','#productSize',function(){
+                var size=$("#productSize").val();
+                var gemstone=$("#gemStone").val();
+                var colour=$("#productColour").val();
+
+                // console.log(gemstone, colour, size);
+
+                $.ajax({
+                    type: 'get',
+                    url: '{!!URL::to('findProductId')!!}',
+                    data: {'size':size, 'gemstone':gemstone, 'colour':colour},
+                    dataType:'json',
+                    success:function(data){
+
+                        console.log(data);
+                        document.getElementById("prodId").value = data[0].id;
+                        document.getElementById("gemStone2").value = data[0].gemstone;
+                        document.getElementById("prodPrice2").value = data[0].price;
+                        document.getElementById("size2").value = data[0].size;
+                        document.getElementById("colour2").value = data[0].colour;
+                        document.getElementById("prodSku").value = data[0].sku;
+
+                    },
+                    error:function(){
+                        console.log('cuba lagi');
+                    }
+                });
+            });
+
+            window.onload = function() {
+                document.getElementById("prodId").value = '';
+                document.getElementById("gemStone2").value = '';
+                document.getElementById("prodPrice2").value = '';
+                document.getElementById("size2").value = '';
+                document.getElementById("colour2").value = '';
+                document.getElementById("prodSku").value = '';
+                }
+        });
+
+        /* $(document).on('change','#gemStone',function(){
                 // console.log("lol");
 
                 var gemstone=$(this).val();
@@ -378,64 +553,6 @@
                     }
                 });
             }); */
-
-            $(document).on('change','.product',function(){
-                var size=$("#productSize").val();
-                var gemstone=$("#gemStone").val();
-                var colour=$("#productColour").val();
-
-                console.log(gemstone, colour, size);
-
-                var div1=$("#gemStone").parent();
-                var div2=$("#productColour").parent();
-
-                var op="";
-
-                $.ajax({
-                    type: 'get',
-                    url: '{!!URL::to('findProductSize')!!}',
-                    data: {'gemstone':gemstone, 'colour':colour},
-                    success:function(data){
-
-                        for(var i=0;i<data.length;i++){
-                            op+='<option value="'+data[i].size+'">'+data[i].size+'</option>';
-                        }
-
-                        div1.find('#productSize').html("");
-                        div2.find('#productSize').html("");
-
-                        $('#productSize').html(op);
-
-                        $("#productSize").attr('selectedIndex', 0);
-
-                    },
-                    error:function(){
-                        console.log('gg');
-                    }
-                });
-
-                $.ajax({
-                    type: 'get',
-                    url: '{!!URL::to('findProductId')!!}',
-                    data: {'size':size, 'gemstone':gemstone, 'colour':colour},
-                    dataType:'json',
-                    success:function(data){
-                        // document.getElementById("prodId").value = data.id;
-                        console.log(data);
-
-                        document.getElementById("prodId").value = data.id;
-
-                        var price = (data.price/100).toFixed(2);
-
-                        document.getElementById("prodPrice").innerHTML = "RM"+price;
-                        document.getElementById("prodPrice2").value = data.price;
-                    },
-                    error:function(){
-                        console.log('cuba lagi');
-                    }
-                });
-            });
-        });
 
     </script>
 @endsection
