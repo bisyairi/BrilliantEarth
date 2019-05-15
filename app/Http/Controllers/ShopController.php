@@ -65,7 +65,7 @@ class ShopController extends Controller
     } */
 
     public function findProductSize(Request $request){
-        $data = ProductAttribute::select('id', 'products_id', 'size', 'gemstone')
+        $data = ProductAttribute::select('size')
         ->where('gemstone', $request->gemstone)
         ->orWhere('colour', $request->colour)
         ->take(100)->get();
@@ -86,7 +86,7 @@ class ShopController extends Controller
     }
 
     public function findProductPrice(Request $request){
-        $price = ProductAttribute::select('price', 'gemstone')
+        $price = ProductAttribute::select('price', 'gemstone', 'colour')
         ->where('gemstone', $request->gemstone)
         ->orWhere('colour', $request->colour)->first();
 

@@ -23,15 +23,15 @@
                             <p class="form-row">
                                 <label>Email address</label>
                                 <input type="email">
-                            </p>	
-                            <div class="submit">					
+                            </p>
+                            <div class="submit">
                                 <button name="submitcreate" id="submitcreate" type="submit" class="">
                                     <span>
                                         <i class="fa fa-user left"></i>
                                         Create an account
                                     </span>
                                 </button>
-                            </div>		
+                            </div>
                         </form>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6">
@@ -46,7 +46,7 @@
                                 <input type="password">
                             </p>
                             <p class="lost-password form-group"><a rel="nofollow" href="#">Forgot your password?</a></p>
-                            <div class="submit">					
+                            <div class="submit">
                                 <button name="submitcreate2" id="submitcreate2" type="submit" class="">
                                     <span><i class="fa fa-lock"></i>Sign In</span>
                                 </button>

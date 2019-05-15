@@ -1,10 +1,10 @@
 @extends('layouts.app')
-        
-@section('content')        
+
+@section('content')
         <!-- slider Area Start -->
 		<div class="slider-area">
 			<div class="bend niceties preview-1">
-				<div id="ensign-nivoslider-3" class="slides">	
+				<div id="ensign-nivoslider-3" class="slides">
 					<img src="{{asset('img/slider/s-1-1.jpg')}}" alt="" title="#slider-direction-1"/>
  					<img src="{{asset('img/slider/s-1-2.jpg')}}" alt="" title="#slider-direction-2"/>
 				</div>
@@ -12,15 +12,15 @@
 				<div id="slider-direction-1" class="t-cn slider-direction">
 					<div class="container slider-height">
 						<div class="row slider-height">
-							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 slider-height">	
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 slider-height">
 								<div class="slide-text">
 									<div class="cap-title wow bounceInDown" data-wow-duration="0.9s" data-wow-delay="0s">
 										<h2><strong>SPANKING</strong><br />COLLECTION</h2>
 									</div>
 									<div class="cap-shop wow bounceInUp" data-wow-duration="1.3s" data-wow-delay=".5s">
 										<a href="/shop">Shop now</a>
-									</div>						
-								</div>						
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -36,21 +36,21 @@
 									</div>
 									<div class="cap-shop wow bounceInUp" data-wow-duration="1.3s" data-wow-delay=".5s">
 										<a href="/shop">Shop now</a>
-									</div>						
-								</div>								
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>       
-		<!-- slider Area End-->      
-		<!--New Product Area Start--> 
+		</div>
+		<!-- slider Area End-->
+		<!--New Product Area Start-->
 		<div class="new-product-area">
 		    <div class="container">
 		        <div class="row">
                     <div class="col-md-12">
-                        <div class="new-product-top"> 
+                        <div class="new-product-top">
                             <div class="col-50 padding-right">
                                 @foreach ($newproduct1 as $product)
                                 <div class="single-top-product">
@@ -70,7 +70,7 @@
                                     </div>
                                 </div>
                                 @endforeach
-                            </div> 
+                            </div>
                             <div class="col-50 padding-left">
                                 @foreach ($newproduct3 as $product)
                                 <div class="single-top-product">
@@ -91,7 +91,7 @@
                                 </div>
                                 @endforeach
                             </div>
-                        </div> 
+                        </div>
                     </div>
 		        </div>
 		        <div class="new-trend section-padding">
@@ -114,8 +114,8 @@
                                                 </li>
                                                 <li>
                                                 <a href="#" class="show-modal" title="Quick view" data-toggle="modal" data-target="#productModal"
-                                                data-id="{{$trend->id}}" data-desc="{{$trend->description}}" 
-                                                data-image="{{asset('img/product/'.$trend->image)}}" data-price="{{$trend->presentPrice()}}" 
+                                                data-id="{{$trend->id}}" data-desc="{{$trend->description}}"
+                                                data-image="{{asset('img/product/'.$trend->image)}}" data-price="{{$trend->presentPrice()}}"
                                                 data-name="{{$trend->name}}"><i class="flaticon-view"></i></a>
                                                 </li>
                                             </ul>
@@ -138,9 +138,9 @@
                     </div>
 		        </div>
 		    </div>
-		</div>    
-		<!-- New Product Area End -->  
-		<!-- New Product Area Start -->   
+		</div>
+		<!-- New Product Area End -->
+		<!-- New Product Area Start -->
 		<div class="new-collection-area">
 		    <div class="container">
 		        <div class="row">
@@ -154,7 +154,7 @@
 		        </div>
 		    </div>
 		</div>
-		<!-- New Product Area End --> 
+		<!-- New Product Area End -->
         <!--Featured Product Area Start-->
         <div class="featured-product-area section-padding">
             <div class="container">
@@ -176,7 +176,7 @@
                                                 <a href="#"><i class="flaticon-bag"></i></a>
                                             </li>
 											<li>
-                                                <a href="#" title="Quick view" data-toggle="modal" data-target="#productModal" 
+                                                <a href="#" title="Quick view" data-toggle="modal" data-target="#productModal"
                                                 data-desc="{{$feature->description}}" data-image="{{asset('img/product/'.$feature->image)}}"
                                                 data-price="{{$feature->presentPrice()}}" data-name="{{$feature->name}}"><i class="flaticon-view"></i></a>
 											</li>
@@ -198,8 +198,8 @@
                         @endforeach
                     </div>
                 </div>
-            </div>        
-        </div>        
+            </div>
+        </div>
         <div class="testimonial-area section-padding">
             <div class="container">
                 <div class="row">
@@ -321,7 +321,7 @@
 
            /*  var price = document.getElementById("price");
             var content = document.createTextNode("RM ");
-            
+
             price.insertBefore(content, price.firstChild); */
         });
     });

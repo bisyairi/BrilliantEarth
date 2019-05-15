@@ -23,13 +23,13 @@
                             <ul class="sidebar-menu">
                                 <li>
                                     <a href="#">
-                                        Rings                                          
+                                        Rings
                                         <span><i class="fa fa-plus"></i></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        Necklaces                                            
+                                        Necklaces
                                         <span><i class="fa fa-plus"></i></span>
                                     </a>
                                 </li>
@@ -41,19 +41,19 @@
                                 </li>
                                 <li>
                                     <a href="#">
-                                        Earrings                                           
+                                        Earrings
                                         <span><i class="fa fa-plus"></i></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        Churies                                 
+                                        Churies
                                         <span><i class="fa fa-plus"></i></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        Jewelry Sets                                           
+                                        Jewelry Sets
                                         <span><i class="fa fa-plus"></i></span>
                                     </a>
                                 </li>
@@ -65,13 +65,13 @@
                             <ul class="sidebar-menu">
                                 <li>
                                     <a href="#">
-                                        <span class="widget-hover">Rings</span>                                            
+                                        <span class="widget-hover">Rings</span>
                                         <span>(20)</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <span class="widget-hover">Necklaces</span>                                            
+                                        <span class="widget-hover">Necklaces</span>
                                         <span>(26)</span>
                                     </a>
                                 </li>
@@ -83,19 +83,19 @@
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <span class="widget-hover">Earrings</span>                                            
+                                        <span class="widget-hover">Earrings</span>
                                         <span>(22)</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <span class="widget-hover">Churies</span>                                            
+                                        <span class="widget-hover">Churies</span>
                                         <span>(26)</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <span class="widget-hover">Jewelry Sets</span>                                            
+                                        <span class="widget-hover">Jewelry Sets</span>
                                         <span>(36)</span>
                                     </a>
                                 </li>
@@ -240,7 +240,7 @@
             </div>
         </div>
     </div>
-    <!-- Shop Page Area End -->        
+    <!-- Shop Page Area End -->
     <!-- Brand Area Start -->
     @include('inc.brand')
     <!-- Brand Area End -->

@@ -19,7 +19,7 @@
             <div class="row">
                 <div class="col-md-12">
 
-                        @if (session()->has('success_message'))
+                    @if (session()->has('success_message'))
                         <div class="alert alert-success">
                             {{ session()->get('success_message') }}
                         </div>
@@ -35,7 +35,7 @@
                         </div>
                     @endif
 
-                    <?php echo Cart::content(); ?>
+                     {{-- {{Cart::content()}} --}}
                     @if (Cart::count() >0)
 
                     <h2>{{ Cart::count() }} item(s) in Shopping Cart</h2>
@@ -58,25 +58,23 @@
                             <tbody>
                                 <tr>
                                     <td class="product-remove">
-                                        <form id="remove" action="{{ route('cart.destroy', $item->rowId) }}" method="POST">
+                                        <form action="{{ route('cart.destroy', $item->rowId) }}" method="POST">
                                             {{ csrf_field() }}
                                             {{ method_field('DELETE') }}
-                                            <a onclick="document.getElementById('remove').submit()">
-                                                <i class="fa fa-trash-o"></i>
-                                            </a>
+                                            <button type="submit" class="btn btn-lg"><i class="fa fa-trash-o"></i></button>
                                         </form>
                                     </td>
                                     <td class="product-image">
-                                        <a href="">
-                                            <img src="" alt="">
+                                    <a href="{{route('shop.show', $item->options->slug)}}">
+                                            <img style="width:255px; height:280px" src="{{asset('img/product/'.$item->options->image)}}" alt="">
                                         </a>
                                     </td>
                                     <td class="t-product-name">
                                         <h3>
-                                            <a href="{{ route('shop.show', $models->firstWhere('id', $item->id)->products->slug) }}">{{$item->name}}</a>
+                                            <a href="{{ route('shop.show', $item->options->slug) }}">{{$item->name}}</a>
                                         </h3>
-                                    <p>{{$models->firstWhere('id', $item->id)->size }}</p>
-                                    <p>{{$models->find($item->id)->gemstone}}</p>
+                                    <p>{{$item->options->size }}</p>
+                                    <p>{{$item->options->gemstone}}</p>
                                     </td>
                                     {{-- <td class="product-edit">
                                         <p>
@@ -98,7 +96,7 @@
                         </table>
                     </div>
                     <div class="shopingcart-bottom-area">
-                        <a class="left-shoping-cart" href="/shop">CONTINUE SHOPPING</a>
+                        <a class="left-shoping-cart" href="{{route('shop.index')}}">CONTINUE SHOPPING</a>
                         <div class="shopingcart-bottom-area pull-right">
                             <a class="right-shoping-cart" href="#">CLEAR SHOPPING CART</a>
                             <a class="right-shoping-cart" href="#">UPDATE SHOPPING CART</a>
@@ -107,6 +105,10 @@
 
                     @else
                         <h3>No items in Cart!</h3>
+                        <br>
+                        <div class="shopingcart-bottom-area">
+                            <a class="left-shoping-cart" href="/shop">CONTINUE SHOPPING</a>
+                        </div>
                     @endif
                 </div>
             </div>
@@ -137,7 +139,7 @@
                         <div class="subtotal-area">
                             <h2>GRAND TOTAL<span>{{presentPrice(Cart::total())}}</span></h2>
                         </div>
-                        <a href="#">CHECKOUT</a>
+                        <a href="{{route('checkout.index')}}">CHECKOUT</a>
                         <p>Checkout With Multiple Addresses</p>
                     </div>
                 </div>
@@ -146,3 +148,15 @@
     </div>
     <!-- Discount Area End -->
 @endsection
+
+{{-- @section('extra-js')
+
+<script type="text/javascript">
+
+document.getElementById("removeid").onclick = function() {
+    document.getElementById("remove").submit();
+}
+
+</script>
+
+@endsection --}}

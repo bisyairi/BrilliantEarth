@@ -64,12 +64,13 @@
                                 <h2 id="prodPrice" class="prodPrice">{{$product->presentPrice()}}</h2>
                                 {{-- <p><i>Normal Retail Price: {{$product->presentPrice()}}</i></p> --}}
                             </div>
-                                <input type="text" name="price" id="prodPrice2">
-                                <input type="text" name="id" id="prodId">
-                                <input type="text" name="id2" id="productId" value="{{$product->id}}">
-                                <input type="text" name="name" id="prodName" value="{{$product->name}}">
-                                <input type="text" name="slug" id="prodSlug" value="{{$product->slug}}">
-                                <input type="text" name="sku" id="prodSku">
+                                <input type="hidden" name="price" id="prodPrice2">
+                                <input type="hidden" name="id" id="prodId">
+                                <input type="hidden" name="id2" id="productId" value="{{$product->id}}">
+                                <input type="hidden" name="name" id="prodName" value="{{$product->name}}">
+                                <input type="hidden" name="slug" id="prodSlug" value="{{$product->slug}}">
+                                <input type="hidden" name="image" id="prodImg" value="{{$product->image}}">
+                                <input type="hidden" name="sku" id="prodSku">
 
                             <p class="single-shop-select" id="gem">
                                 <label>Gemstone</label>
@@ -78,7 +79,7 @@
                                     <option value="{{$gemstone->gemstone}}">{{$gemstone->gemstone}}</option>
                                     @endforeach
                                 </select>
-                                <input type="text" name="gemstone" id="gemStone2" />
+                                <input type="hidden" name="gemstone" id="gemStone2" />
                             </p>
 
                             <p class="single-shop-select" id="colour">
@@ -88,7 +89,7 @@
                                     <option value="{{$colour->colour}}">{{$colour->colour}}</option>
                                     @endforeach
                                 </select>
-                                <input type="text" name="colour" id="colour2" />
+                                <input type="hidden" name="colour" id="colour2" />
                             </p>
 
                             <p class="single-shop-select" id="size">
@@ -99,7 +100,7 @@
                                     <option value="{{$size->size}}">{{$size->size}}</option>
                                     @endforeach
                                 </select>
-                                <input type="text" name="size" id="size2" />
+                                <input type="hidden" name="size" id="size2" />
                             </p>
 
                             <div class="product-attributes clearfix">
@@ -123,9 +124,9 @@
                                 </a>
                             </div>
                             <div class="single-product-categories">
-                            <label>Categories:</label>
+                            {{-- <label>Categories:</label>
                                 <span>Girls Optical, Large ( Ages 9- 14 ), Small ( Ages 2-8 ).</span>
-                            </div>
+                            </div> --}}
                             <div id="product-comments-block-extra">
                                 <ul class="comments-advices">
                                     <li>
@@ -343,6 +344,10 @@
 
                         document.getElementById("prodPrice").innerHTML = "RM"+price;
                         document.getElementById("prodPrice2").value = data.price;
+
+                        document.getElementById("gemStone2").value = data.gemstone;
+                        document.getElementById("colour2").value = data.colour;
+                        // document.getElementById("size2").value = data.size;
 
                         // a.find('.prod_price').val(data.price);
 

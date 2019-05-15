@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html class="no-js" lang="{{ app()->getLocale() }}">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -43,7 +43,7 @@
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        
+
         <!-- Add your site or application content here -->
         <!--Header Area Start-->
         @include('inc.navbar')
@@ -54,11 +54,11 @@
         <!-- Footer Area Start -->
         @include('inc.footerarea')
         <!-- Footer Area End -->
-        
+
         <!-- Footer Bottom Area -->
         @include('inc.footerbtm')
         <!-- Footer Bottom End -->
-        			
+
 		<!-- all js here -->
 		<!-- jquery latest version -->
         <script src="{{asset('js/vendor/jquery-1.12.0.min.js')}}"></script>
@@ -76,7 +76,7 @@
         <script src="{{asset('js/jquery.meanmenu.js')}}"></script>
 		<!-- wow js -->
         <script src="{{asset('js/wow.min.js')}}"></script>
-		<!-- scrollUp JS -->		
+		<!-- scrollUp JS -->
         <script src="{{asset('js/jquery.scrollUp.min.js')}}"></script>
 		<!-- plugins js -->
         <script src="{{asset('js/plugins.js')}}"></script>

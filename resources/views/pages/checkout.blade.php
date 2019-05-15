@@ -41,13 +41,13 @@
                                                 <div class="check-register">
                                                     <input type="radio" />
                                                     <label>Register</label>
-                                                </div>													
+                                                </div>
                                             </form>
                                             <p>Register and save time!</p>
                                             <p>Register with us for future convenience:</p>
                                             <p>Fast and easy check out</p>
                                             <p>Easy access to your order history and status</p>
-                                            <button class="btn btn-default">CONTINUE</button>
+                                            <button class="btn btn-default" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="multiCollapseExample2">CONTINUE</button>
                                         </div>
                                         <div class="col-md-6 col-sm-6">
                                             <h2 class="collapse-title">LOGIN</h2>
@@ -61,11 +61,11 @@
                                                 <p class="form-row">
                                                     <label>Password<span class="required">*</span></label>
                                                     <input type="password" />
-                                                </p>	
+                                                </p>
                                                 <div class="check-register login-button">
                                                     <a href="#">forgot your password?</a>
                                                     <input class="btn btn-default" type="submit" value="LOGIN"/>
-                                                </div>												
+                                                </div>
                                             </form>
                                         </div>
                                     </div>
@@ -84,11 +84,11 @@
                             <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                                 <div class="panel-body">
                                     <div class="row">
-                                        <div class="col-md-12">
+                                        {{-- <div class="col-md-12">
                                             <div class="shop-select">
                                                 <label>Country <span class="required">*</span></label>
                                                 <select>
-                                                    <option value="volvo">Bangladesh</option>
+                                                    <option value="malaysia">Malaysia</option>
                                                     <option value="saab">Algeria</option>
                                                     <option value="mercedes">Afghanistan</option>
                                                     <option value="audi">Ghana</option>
@@ -96,27 +96,27 @@
                                                     <option value="audi3">Bahrain</option>
                                                     <option value="audi4">Colombia</option>
                                                     <option value="audi5">Dominican Republic</option>
-                                                </select> 										
-                                            </div>	
-                                        </div>	
+                                                </select>
+                                            </div>
+                                        </div> --}}
                                         <div class="col-md-6">
                                             <p class="form-row">
                                                 <label>First Name<span class="required">*</span></label>
                                                 <input type="text">
                                             </p>
-                                        </div>	
+                                        </div>
                                         <div class="col-md-6">
                                             <p class="form-row">
                                                 <label>Last Name<span class="required">*</span></label>
                                                 <input type="text">
                                             </p>
-                                        </div>	
+                                        </div>
                                         <div class="col-md-12">
                                             <p class="form-row">
                                                 <label>Company Name</label>
                                                 <input type="text">
                                             </p>
-                                        </div>	
+                                        </div>
                                         <div class="col-md-12">
                                             <p class="form-row">
                                                 <label>Address<span class="required">*</span></label>
@@ -163,9 +163,9 @@
                                                 <p class="form-row">
                                                     <label>Phone<span class="required">*</span></label>
                                                     <input type="text" placeholder="Phone">
-                                                </p>									
+                                                </p>
                                             </div>
-                                        </div>											
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -201,27 +201,27 @@
                                                         <option value="audi3">Bahrain</option>
                                                         <option value="audi4">Colombia</option>
                                                         <option value="audi5">Dominican Republic</option>
-                                                    </select> 										
-                                                </div>	
-                                            </div>	
+                                                    </select>
+                                                </div>
+                                            </div>
                                             <div class="col-md-6">
                                                 <p class="form-row">
                                                     <label>First Name<span class="required">*</span></label>
                                                     <input type="text">
                                                 </p>
-                                            </div>	
+                                            </div>
                                             <div class="col-md-6">
                                                 <p class="form-row">
                                                     <label>Last Name<span class="required">*</span></label>
                                                     <input type="text">
                                                 </p>
-                                            </div>	
+                                            </div>
                                             <div class="col-md-12">
                                                 <p class="form-row">
                                                     <label>Company Name</label>
                                                     <input type="text">
                                                 </p>
-                                            </div>	
+                                            </div>
                                             <div class="col-md-12">
                                                 <p class="form-row">
                                                     <label>Address<span class="required">*</span></label>
@@ -257,13 +257,13 @@
                                                     <label>Phone<span class="required">*</span></label>
                                                     <input type="text" placeholder="Phone">
                                                 </p>
-                                            </div>											
+                                            </div>
                                         </div>
                                         <div class="order-notes">
                                             <label>Order Notes</label>
                                             <textarea placeholder="Notes about your order, e.g. special notes for delivery." rows="10" cols="30" id="checkout-mess"></textarea>
                                         </div>
-                                    </div>								
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -309,7 +309,7 @@
                             </div>
                             <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
                                 <div class="panel-body no-padding">
-                                    <div class="order-review" id="checkout-review">    
+                                    <div class="order-review" id="checkout-review">
                                         <div class="table-responsive" id="checkout-review-table-wrapper">
                                             <table class="data-table" id="checkout-review-table">
                                                 <thead>
@@ -320,41 +320,36 @@
                                                         <th colspan="1">Subtotal</th>
                                                     </tr>
                                                 </thead>
+                                                @foreach (Cart::content() as $item)
                                                 <tbody>
                                                     <tr>
-                                                        <td><h3 class="product-name">Cras neque metus</h3></td>
-                                                        <td><span class="cart-price"><span class="price">$155.00</span></span></td>
-                                                        <td>1</td>
+                                                        <td><h3 class="product-name">{{$item->name}}</h3></td>
+                                                        <td><span class="cart-price"><span class="price">{{presentPrice($item->price)}}</span></span></td>
+                                                        <td>{{$item->qty}}</td>
                                                         <!-- sub total starts here -->
-                                                        <td><span class="cart-price"><span class="price">$155.00</span></span></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><h3 class="product-name">Nunc facilisis</h3></td>
-                                                        <td><span class="cart-price"><span class="price">$222.00</span></span></td>
-                                                        <td>1</td>
-                                                        <!-- sub total starts here -->
-                                                        <td><span class="cart-price"><span class="price">$222.00</span></span></td>
+                                                        <td><span class="cart-price"><span class="price">{{ presentPrice($item->subtotal) }}</span></span></td>
                                                     </tr>
                                                 </tbody>
+                                                @endforeach
                                                 <tfoot>
                                                     <tr>
                                                         <td colspan="3">Subtotal</td>
-                                                        <td><span class="price">$377.00</span></td>
+                                                        <td><span class="price">{{presentPrice(Cart::subtotal())}}</span></td>
                                                     </tr>
                                                     <tr>
                                                         <td colspan="3">Shipping Handling (Flat Rate - Fixed)</td>
-                                                        <td><span class="price">$10.00</span></td>
+                                                        <td><span class="price">Free for now :p</span></td>
                                                     </tr>
                                                     <tr>
                                                         <td colspan="3"><strong>Grand Total</strong></td>
-                                                        <td><strong><span class="price">$387.00</span></strong></td>
+                                                        <td><strong><span class="price">{{presentPrice(Cart::total())}}</span></strong></td>
                                                     </tr>
                                                 </tfoot>
                                             </table>
                                         </div>
                                         <div id="checkout-review-submit">
                                             <div class="cart-btn-3" id="review-buttons-container">
-                                                <p class="left">Forgot an Item? <a href="#">Edit Your Cart</a></p>
+                                                <p class="left">Forgot an Item? <a href="{{route('cart.index')}}">Edit Your Cart</a></p>
                                                 <button type="submit" title="Place Order" class="btn btn-default"><span>Place Order</span></button>
                                             </div>
                                         </div>
@@ -362,18 +357,18 @@
                                 </div>
                             </div>
                         </div>
-                    </div>                        
+                    </div>
                 </div>
                 <div class="col-md-offset-1 col-md-4 col-sm-offset-1 col-sm-4">
                     <div class="checkout-widget">
                         <h2 class="widget-title">YOUR CHECKOUT PROGRESS</h2>
                         <ul>
-                            <li><a href="#"><i class="fa fa-minus"></i> Billing Address</a></li>
-                            <li><a href="#"><i class="fa fa-minus"></i> Shipping Address</a></li>
-                            <li><a href="#"><i class="fa fa-minus"></i> Shipping Method</a></li>
-                            <li><a href="#"><i class="fa fa-minus"></i> Payment Method</a></li>
+                            <li><a data-toggle="collapse" href="#collapseOne" role="button" aria-expanded="false" aria-controls="collapseOne"><i class="fa fa-minus"></i> Billing Address</a></li>
+                            <li><a data-toggle="collapse" href="#collapseTwo" role="button" aria-expanded="false" aria-controls="collapseTwo"><i class="fa fa-minus"></i> Shipping Address</a></li>
+                            <li><a data-toggle="collapse" href="#collapseThree" role="button" aria-expanded="false" aria-controls="collapseThree"><i class="fa fa-minus"></i> Shipping Method</a></li>
+                            <li><a data-toggle="collapse" href="#collapseFour" role="button" aria-expanded="false" aria-controls="collapseFour"><i class="fa fa-minus"></i> Payment Method</a></li>
                         </ul>
-                    </div>                        
+                    </div>
                 </div>
             </div>
         </div>

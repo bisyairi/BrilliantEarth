@@ -64,7 +64,7 @@
                                 </div>
                                 <div id="collapseOne" class="panel-collapse collapse in">
                                   <div class="panel-body">
-                                    There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined.If you are going to use a passage of Lorem Ipsum 
+                                    There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined.If you are going to use a passage of Lorem Ipsum
                                   </div>
                                 </div>
                               </div>
@@ -80,7 +80,7 @@
                                 </div>
                                 <div id="collapseTwo" class="panel-collapse collapse">
                                   <div class="panel-body">
-                                    There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined.If you are going to use a passage of Lorem Ipsum 
+                                    There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined.If you are going to use a passage of Lorem Ipsum
                                   </div>
                                 </div>
                               </div>
@@ -97,10 +97,10 @@
                                 </div>
                                 <div id="collapseThree" class="panel-collapse collapse">
                                   <div class="panel-body">
-                                    There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined.If you are going to use a passage of Lorem Ipsum 
+                                    There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined.If you are going to use a passage of Lorem Ipsum
                                   </div>
                                 </div>
-                              </div> 
+                              </div>
                               <div class="panel panel-default">
                                 <div class="panel-heading titel_panel">
                                   <h4 class="panel-title">
@@ -114,10 +114,10 @@
                                 </div>
                                 <div id="collapseFour" class="panel-collapse collapse">
                                   <div class="panel-body">
-                                    There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined.If you are going to use a passage of Lorem Ipsum 
+                                    There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined.If you are going to use a passage of Lorem Ipsum
                                   </div>
                                 </div>
-                              </div> 
+                              </div>
                             </div>
                         </div>
                     </div>
@@ -161,7 +161,7 @@
                                         <p>ANALYSIS</p><span>95</span>
                                     </div>
                                 </div>
-                                <!-- End Bar Item -->                                
+                                <!-- End Bar Item -->
                             </div>
                         </div>
                     </div>
@@ -176,7 +176,7 @@
             <div class="row">
                 <div class="section-title">
                     <h2>OUR team</h2>
-                </div> 
+                </div>
                 <div class="our-team-list">
                     <div class="col-md-12">
                         <div class="team-member">

@@ -13,22 +13,22 @@
                     <div class="header-top-menu pull-right">
                         <ul class="nav-menu">
                             <li><a href="/login">LOGIN</a></li>
-                            {{-- <li><a href="#">LANGUAGE</a>
+                            <li><a href="#">LANGUAGE</a>
                                 <div class="ht-menu-down">
                                     <ul>
                                         <li><a href="#">Malay</a></li>
                                         <li><a href="#">English</a></li>
                                     </ul>
                                 </div>
-                            </li> --}}
-                            {{-- <li><a href="#">CURRENCY</a>
+                            </li>
+                            <li><a href="#">CURRENCY</a>
                                 <div class="ht-menu-down">
                                     <ul>
                                         <li><a href="#">MYR</a></li>
                                         <li><a href="#">USD</a></li>
                                     </ul>
                                 </div>
-                            </li> --}}
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -71,33 +71,37 @@
                     </div>
                 </div>
                 <div class="col-md-1 col-sm-1 col-xs-6">
-                    <div class="header-cart pull-right">
-                        <ul>
-                            <li>
-                               <a class="header-cart-link" href="#">
-                                   <i class="flaticon-bag"></i>
-                                    <span>2</span>
-                               </a>
-                               <div class="cart_down_area">
-                                   <div class="cart_single">
-                                       <a href="#">
-                                           <img src="{{asset('img/product/c-1.jpg')}}" alt="">
-                                       </a>
-                                       <h2>
-                                           <a href="#">Pellentesque hendrerit</a>
-                                           <a href="#">
-                                               <span><i class="fa fa-trash"></i></span>
-                                           </a>
-                                       </h2>
-                                       <p>1 x $222.00</p>
-                                   </div>
-                                   <div class="cart_shoptings">
-                                       <a href="/checkout">Checkout</a>
-                                   </div>
-                               </div>
-                            </li>
-                        </ul>
-                    </div>
+                        <div class="header-cart pull-right">
+                                {{-- <ul> --}}
+                                    {{-- <li> --}}
+                                        <a class="header-cart-link" href="{{ route('cart.index') }}">
+                                            <i class="flaticon-bag"></i>
+                                            @if (Cart::instance('default')->count() > 0)
+                                            <span>{{ Cart::instance('default')->count() }}</span>
+                                            @endif
+                                        </a>
+                                           {{-- <div class="cart_down_area">
+                                               <div class="cart_single">
+                                                   <a href="">
+                                                       <img style="width:50px; height:70px" src="" alt="">
+                                                   </a>
+                                                   <h2>
+                                                       <a href=""></a>
+
+                                                       <button type="submit" class="btn btn-xs">
+                                                           <span><i class="fa fa-trash"></i></span>
+                                                       </button>
+
+                                                   </h2>
+                                                   <p></p>
+                                               </div>
+                                               <div class="cart_shoptings">
+                                                   <a href="/checkout">Checkout</a>
+                                               </div>
+                                           </div> --}}
+                                        {{-- </li> --}}
+                                    {{-- </ul> --}}
+                                </div>
                 </div>
             </div>
         </div>

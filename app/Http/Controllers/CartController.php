@@ -44,7 +44,20 @@ class CartController extends Controller
             return redirect()->route('cart.index')->with('success_message', 'Item is already in your cart!');
         }
 
-        Cart::add($request->id, $request->name, $request->qty, $request->price);
+        Cart::add([
+            'id' => $request->id,
+            'name' => $request->name,
+            'qty' => $request->qty,
+            'price' => $request->price,
+            'weight' => '',
+            'options' => [
+                'size'=>$request->size,
+                'gemstone'=>$request->gemstone,
+                'slug'=>$request->slug,
+                'sku'=>$request->sku,
+                'colour'=>$request->colour,
+                'image'=> $request->image]
+        ]);
 
         return redirect()->route('cart.index')->with('success_message', 'Item was added to your cart!');
     }

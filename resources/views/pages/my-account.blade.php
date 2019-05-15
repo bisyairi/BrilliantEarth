@@ -62,8 +62,8 @@
                                                         <option value="audi3">Bahrain</option>
                                                         <option value="audi4">Colombia</option>
                                                         <option value="audi5">Dominican Republic</option>
-                                                    </select> 										
-                                                </div>	
+                                                    </select>
+                                                </div>
                                                 <p class="form-row">
                                                     <label>Mobile phone<span class="required">*</span></label>
                                                     <input type="text" />
@@ -84,7 +84,7 @@
                                                     </span>
                                                 </a>
                                             </form>
-                                        </div>											
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -151,7 +151,7 @@
                                                     <div class="radio-inline">
                                                         <label class="top">
                                                             <span class="checked">
-                                                                <input type="radio" /> 
+                                                                <input type="radio" />
                                                             </span>
                                                             Mr.
                                                         </label>
@@ -159,7 +159,7 @@
                                                     <div class="radio-inline">
                                                         <label class="top">
                                                             <span class="checked">
-                                                                <input type="radio" /> 
+                                                                <input type="radio" />
                                                             </span>
                                                             Mrs.
                                                         </label>
@@ -208,7 +208,7 @@
                                                                 <option>28</option>
                                                                 <option>29</option>
                                                                 <option>30</option>
-                                                            </select> 																
+                                                            </select>
                                                         </div>
                                                         <div class="col-xs-4">
                                                             <select>
@@ -224,7 +224,7 @@
                                                                 <option>October </option>
                                                                 <option>November </option>
                                                                 <option>December </option>
-                                                            </select> 																
+                                                            </select>
                                                         </div>
                                                         <div class="col-xs-4">
                                                             <select>
@@ -259,9 +259,9 @@
                                                                 <option>2018</option>
                                                                 <option>2019</option>
                                                                 <option>2020</option>
-                                                            </select> 																
+                                                            </select>
                                                         </div>
-                                                    </div>										
+                                                    </div>
                                                 </div>
                                                 <p class="form-row">
                                                     <label><span class="required">*</span>Current Password</label>
@@ -301,7 +301,7 @@
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-lg-6">
-                        <div class="myaccount-link-list">								
+                        <div class="myaccount-link-list">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h4 class="panel-title">

@@ -5,7 +5,7 @@
 		<div class="map-area">
 			<div id="googleMap" style="width:100%;height:445px;"></div>
 		</div>
-		<!-- Map Area End -->	
+		<!-- Map Area End -->
 		<!-- Address Information Area Start -->
 		<div class="address-info-area">
 			<div class="container">
@@ -22,7 +22,7 @@
 									<p>+(05)-15689-5698-44</p>
 								</div>
 							</div>
-						</div>						
+						</div>
 					</div>
 					<div class="col-md-4 col-sm-6">
 						<div class="address-single">
@@ -36,7 +36,7 @@
 									<p>Roitan city, USA.</p>
 								</div>
 							</div>
-						</div>						
+						</div>
 					</div>
 					<div class="col-md-4 col-sm-6">
 						<div class="address-single no-margin">
@@ -50,7 +50,7 @@
 									<p>www.companyweb.com</p>
 								</div>
 							</div>
-						</div>					
+						</div>
 					</div>
 				</div>
 			</div>
@@ -71,7 +71,7 @@
 										<input type="text" placeholder="Your Name" name="name" id="name" />
 										<input type="email" placeholder="Your Email" name="email" id="email" />
 										<input type="text" placeholder="Your phone" name="phone" id="phone" />
-									</div>								
+									</div>
 								</div>
 								<div class="col-md-7">
 									<div class="contact-form-right">
