@@ -1,17 +1,17 @@
 /*-----------------------------------------------------------------------------------
 
-    Template Name: taj-ecommerce-bootstrap-template 
-    Template URI: 
+    Template Name: taj-ecommerce-bootstrap-template
+    Template URI:
     Description: This is html5 template
     Author: BootExperts
-    Author URI: 
+    Author URI:
     Version: 1.0
 
 -----------------------------------------------------------------------------------
-    
+
     CSS INDEX
     ===================
-	
+
     1.	Theme Default CSS (body, link color, section etc)
 	2.	Header Top CSS
 	3.	Heade BOttom CSS
@@ -68,7 +68,7 @@ a:active, a:hover {
   outline: 0 none;
 }
 ul{
-list-style: disc none none;
+list-style: outside none none;
 margin: 0;
 padding: 0
 }

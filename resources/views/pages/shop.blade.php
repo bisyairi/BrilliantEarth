@@ -37,8 +37,9 @@
                                 <div class="price_filter">
                                     <div id="slider-range"></div>
                                     <div class="price_slider_amount">
-                                        <form action="{{ route('shop.index') }}" method="GET">
-                                            <input type="text" id="amount" name="price" placeholder="Add Your Price" />
+                                        <form action="{{ route('shop.index')}}" method="GET">
+                                        <input style="width:75px" type="text" name="min_price" id="min_price" value="{{'RM'.number_format($minprice / 100, 2)}}"/>    -
+                                        <input style="width:75px"type="text" name="max_price" id="max_price" value="{{'RM'.number_format($maxprice / 100, 2)}}"/> -
                                             <input type="submit" value="SEARCH" />
                                         </form>
                                     </div>
@@ -106,7 +107,7 @@
                                    <div class="col-md-4 col-sm-6">
                                        <div class="single-product">
                                            <a href="{{ route('shop.show', $product->slug) }}">
-                                               <img src="{{asset('img/product/'.$product->image)}}" alt="">
+                                               <img src="{{asset('img/'.$product->image)}}" alt="">
                                            </a>
                                            <div class="single-product-overlay {{ $product->status }}">
                                                <h3>{{ $product->status_desc }}</h3>
@@ -210,16 +211,27 @@
     <!-- Javascript -->
     <script>
         $(function() {
+
+
             $( "#slider-range" ).slider({
-                range:true,
-                min: {!! $minprice !!},
-                max: {!! $maxprice !!},
+                range : true,
+                min   : {!! $minprice !!},
+                max   : {!! $maxprice !!},
                 values: [ {!! $minprice !!}, {!! $maxprice !!} ],
-                slide: function( event, ui ) {
-                    $( "#amount" ).val( "RM" + ui.values[ 0 ]/100 + " - RM" + ui.values[ 1 ]/100 );
+                slide : function( event, ui ) {
+
+                    var minprice = ui.values[ 0 ];
+                    var maxprice = ui.values[ 1 ];
+
+                    var a = minprice/100;
+                    var b = maxprice/100;
+
+                    $( "#min_price" ).val( "RM" + a.toFixed(2));
+                    $( "#max_price" ).val( "RM" + b.toFixed(2));
                     }
             });
-            $( "#amount" ).val( "RM" + $( "#slider-range" ).slider( "values", 0 )/100 + " - RM" + $( "#slider-range" ).slider( "values", 1 )/100 );
+            // $( "#min_price" ).val( "RM" + $( "#slider-range" ).slider( "values", 0 )/100);
+            // $( "#max_price" ).val( "RM" + $( "#slider-range" ).slider( "values", 1 )/100);
         });
         </script>
 @endsection

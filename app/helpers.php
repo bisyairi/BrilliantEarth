@@ -8,6 +8,7 @@ function presentPrice($price)
 }
 
 function presentDate($date)
+
 {
     return Carbon::parse($date)->format('M d, Y');
 }
@@ -27,7 +28,6 @@ function getNumbers()
     $tax = config('cart.tax') / 100;
     $discount = session()->get('coupon')['discount'] ?? 0;
     $code = session()->get('coupon')['name'] ?? null;
-    // $subtotal = number_format((float)Cart::subtotal(), 2);
     $newSubtotal = (Cart::subtotal() - $discount);
     if ($newSubtotal < 0) {
         $newSubtotal = 0;
@@ -39,7 +39,6 @@ function getNumbers()
         'tax' => $tax,
         'discount' => $discount,
         'code' => $code,
-        // 'subtotal' => $subtotal,
         'newSubtotal' => $newSubtotal,
         'newTax' => $newTax,
         'newTotal' => $newTotal,
@@ -57,4 +56,5 @@ function getNumbers()
     }
 
     return $stockLevel;
-} */
+}
+ */

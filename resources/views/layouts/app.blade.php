@@ -1,8 +1,9 @@
 <!doctype html>
 <html class="no-js" lang="{{ app()->getLocale() }}">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
     <head>
         <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <title>{{config('app.name', 'BrilliantEarth')}}</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -38,6 +39,8 @@
         <link rel="stylesheet" href="{{asset('css/responsive.css')}}">
 		<!-- modernizr css -->
         <script src="{{asset('js/vendor/modernizr-2.8.3.min.js')}}"></script>
+
+        @yield('extra-script')
     </head>
     <body>
         <!--[if lt IE 8]>

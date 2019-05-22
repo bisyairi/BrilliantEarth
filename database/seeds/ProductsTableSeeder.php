@@ -29,11 +29,12 @@ class ProductsTableSeeder extends Seeder
                 <li>100% quality assurance and satisfaction guaranteed!</li>
             </ul>',
             'featured' => '1',
-            'image' => 'GR00035-PA6_1583x.jpg',
+            'image' => 'products/dummy/GR00035-PA6_1583x.jpg',
+            'images' => '["products\/dummy\/GR00035-PA6_1583x.jpg,products\/dummy\/GR00035-RB5_1583x.jpg,products\/dummy\/GR00035-RP4_9e862982-1d30-49a4-93ee-61a11bdf8032_1583x.png, products\/dummy\/GR00035-YY3_1583x.jpg"]',
             'new_trend' => '0',
             'status' => 'sale',
             'status_desc' => 'Sale',
-        ]);
+        ])->categories()->attach(1);
 
         Product::create([
             'name' => 'LOVE KNOT ROSE RING PENDANT',
@@ -54,11 +55,12 @@ class ProductsTableSeeder extends Seeder
                 <li>Chain not included</li>
             </ul>',
             'featured' => '1',
-            'image' => 'DR000_1583x.png',
+            'image' => 'products/dummy/DR000_1583x.png',
+            'images' => '["products\/dummy\/DR000_1583x.png,products\/dummy\/MG_6715_1583x.png,products\/dummy\/MG_6734_0dfe4d63-f1ba-4189-9da3-3ca7dcef34fc_1583x.png"]',
             'new_trend' => '1',
             'status' => 'new',
             'status_desc' => 'New',
-        ]);
+        ])->categories()->attach(1);
 
         Product::create([
             'name' => 'HEART SPARKS RING',
@@ -77,11 +79,12 @@ class ProductsTableSeeder extends Seeder
                 <li>100% quality assurance and satisfaction guaranteed! </li>
             </ul>',
             'featured' => '1',
-            'image' => 'SR00044-RZ_silver_front_1583x.jpg',
+            'image' => 'products/dummy/SR00044-RZ_silver_front_1583x.jpg',
+            'images' => '["products\/dummy\/SR00044-PZ5_rose_gold_front_1583x.jpg,products\/dummy\/SR00044-RZ_silver_front_1583x.jpg,products\/dummy\/SR00044-RZ5_silver_model_1583x.jpg"]',
             'new_trend' => '0',
             'status' => 'offer',
             'status_desc' => '-20%',
-        ]);
+        ])->categories()->attach(1);
 
         Product::create([
             'name' => 'BEADS OF WISDOM RING',
@@ -101,11 +104,12 @@ class ProductsTableSeeder extends Seeder
                 <li>100% quality assurance and satisfaction guaranteed!</li>
             </ul>',
             'featured' => '1',
-            'image' => 'GR00005-PA6_1583x.jpg',
+            'image' => 'products/dummy/GR00005-PA6_1583x.jpg',
+            'images' => '["products\/dummy\/GR00005-PA6_1583x.jpg,products\/dummy\/GR00005-RV4_1583x.jpg,products\/dummy\/GR00005-RS3_1583x.jpg,products\/dummy\/GR00005-YG1_1583x.jpg "]',
             'new_trend' => '1',
             'status' => 'new',
             'status_desc' => 'Hot',
-        ]);
+        ])->categories()->attach(1);
 
         Product::create([
             'name' => 'FYB TOPAZ RING',
@@ -125,11 +129,12 @@ class ProductsTableSeeder extends Seeder
                 <li>100% quality assurance and satisfaction guaranteed!</li>
             </ul>',
             'featured' => '1',
-            'image' => 'FYB-Topaz-Ring-2_1583x.jpg',
+            'image' => 'products/dummy/FYB-Topaz-Ring-2_1583x.jpg',
+            'images' => '["products\/dummy\/FYB-Topaz-Ring-2_1583x.jpg,products\/dummy\/FYB-Topaz-Ring-1_1583x.jpg,products\/dummy\/FYB-Topaz-Ring-3_1583x.jpg"]',
             'new_trend' => '0',
             'status' => '',
             'status_desc' => '',
-        ]);
+        ])->categories()->attach(1);
 
         Product::create([
             'name' => 'KHREE RING',
@@ -148,11 +153,12 @@ class ProductsTableSeeder extends Seeder
                 <li>100% quality assurance and satisfaction guaranteed!</li>
             </ul>',
             'featured' => '1',
-            'image' => 'GR00034-RP4_1583x.jpg',
+            'image' => 'products/dummy/GR00034-RP4_1583x.jpg',
+            'images' => '["products\/dummy\/GR00034-PA6_1583x.jpg,products\/dummy\/GR00034-RB5_1583x.jpg,products\/dummy\/GR00034-RP4_1583x.jpg, products\/dummy\/GR00034-YY3_1583x.jpg"]',
             'new_trend' => '1',
             'status' => '',
             'status_desc' => '',
-        ]);
+        ])->categories()->attach(1);
 
         Product::create([
             'name' => 'CLAW-PINCHED RING',
@@ -171,10 +177,11 @@ class ProductsTableSeeder extends Seeder
                 <li>100% quality assurance and satisfaction guaranteed!</li>
             </ul>',
             'featured' => '1',
-            'image' => 'GR00002-PA6_1583x.jpg',
+            'image' => 'products/dummy/GR00002-PA6_1583x.jpg',
+            'images' => '["products\/dummy\/GR00002-PA6_1583x.jpg,products\/dummy\/GR00002-PG6_1583x.jpg,products\/dummy\/GR00002-RB5_1583x.jpg, products\/dummy\/GR00002-YY2_1583x.png"]',
             'status' => '',
             'status_desc' => '',
-        ]);
+        ])->categories()->attach(1);
 
         Product::create([
             'name' => 'VISION RING',
@@ -194,11 +201,12 @@ class ProductsTableSeeder extends Seeder
                 <li>100% quality assurance and satisfaction guaranteed!</li>
             </ul>',
             'featured' => '1',
-            'image' => 'SR00045-RZ5_1583x.png',
+            'image' => 'products/dummy/SR00045-RZ5_1583x.png',
+            'images' => '["products\/dummy\/SR00045-RZ5_1583x.png,products\/dummy\/Vision-Ring-1_1583x.png,products\/dummy\/Model-_CZ-Vision-Ring_1583x.jpg"]',
             'new_trend' => '1',
             'status' => '',
             'status_desc' => '',
-        ]);
+        ])->categories()->attach(1);
 
         Product::create([
             'name' => 'MINI CABOCHON SOLITAIRE RING',
@@ -218,10 +226,11 @@ class ProductsTableSeeder extends Seeder
                 <li>100% quality assurance and satisfaction guaranteed!</li>
             </ul>',
             'featured' => '1',
-            'image' => 'GR00006-RB5_1583x.jpg',
+            'image' => 'products/dummy/GR00006-RB5_1583x.jpg',
+            'images' => '["products\/dummy\/GR00006-RB5_1583x.jpg,products\/dummy\/GR00006-RG1_1583x.jpg,products\/dummy\/GR00006-YY3_1583x.jpg"]',
             'status' => '',
             'status_desc' => '',
-        ]);
+        ])->categories()->attach(1);
 
         Product::create([
             'name' => 'FYB SAPPHIRE RING',
@@ -241,11 +250,12 @@ class ProductsTableSeeder extends Seeder
                 <li>100% quality assurance and satisfaction guaranteed!</li>
             </ul>',
             'featured' => '1',
-            'image' => 'FYB-Sapphire-Ring-2_1583x.jpg',
+            'image' => 'products/dummy/FYB-Sapphire-Ring-2_1583x.jpg',
+            'images' => '["products\/dummy\/,products\/dummy\/,products\/dummy\/, products\/dummy\/"]',
             'new_trend' => '1',
             'status' => '',
             'status_desc' => '',
-        ]);
+        ])->categories()->attach(1);
 
         Product::create([
             'name' => 'Sapphire Rose Earrings',
@@ -265,11 +275,12 @@ class ProductsTableSeeder extends Seeder
             </ul>',
             'quantity' => '18',
             'featured' => '1',
-            'image' => 'Diamond-Rose-Earrings_2_1349x.png',
+            'image' => 'products/dummy/Diamond-Rose-Earrings_2_1349x.png',
+            'images' => '["products\/dummy\/Diamond-Rose-Earrings_2_1349x.png,products\/dummy\/Diamond-Flora-Model-_6_1349x.png"]',
             'new_trend' => '0',
             'status' => '',
             'status_desc' => '',
-        ]);
+        ])->categories()->attach(4);
 
         Product::create([
             'name' => 'Diamond Sakura Earrings',
@@ -288,7 +299,8 @@ class ProductsTableSeeder extends Seeder
             </ul>',
             'quantity' => '5',
             'featured' => '1',
-            'image' => 'Diamond-Sakura-Earrings-3_1349x.png',
+            'image' => 'products/dummy/Diamond-Sakura-Earrings-3_1349x.png',
+            'images' => '["products\/dummy\/Diamond-Sakura-Earrings-3_1349x.png,products\/dummy\/Diamond-Flora-Model-_5_1349x.png"]',
             'new_trend' => '1',
             'status' => '',
             'status_desc' => '',
@@ -310,11 +322,12 @@ class ProductsTableSeeder extends Seeder
             </ul>',
             'quantity' => '11',
             'featured' => '1',
-            'image' => 'Topaz-Love-Earrings_1349x.png',
+            'image' => 'products/dummy/Topaz-Love-Earrings_1349x.png',
+            'images' => '["products\/dummy\/,products\/dummy\/,products\/dummy\/, products\/dummy\/"]',
             'new_trend' => '0',
             'status' => '',
             'status_desc' => '',
-        ]);
+        ])->categories()->attach(4);
 
         Product::create([
             'name' => 'Garnet Love Earrings',
@@ -333,11 +346,12 @@ class ProductsTableSeeder extends Seeder
             </ul>',
             'quantity' => '14',
             'featured' => '1',
-            'image' => 'Garnet-Love-Earrings_68b48174-6c20-42f2-abcf-8aab4ac5c40e_1349x.png',
+            'image' => 'products/dummy/Garnet-Love-Earrings_68b48174-6c20-42f2-abcf-8aab4ac5c40e_1349x.png',
+            'images' => '["products\/dummy\/Garnet-Love-Earrings_68b48174-6c20-42f2-abcf-8aab4ac5c40e_1349x.png,products\/dummy\/Petite-Paradise-Model-WEB-_3_1349x.png"]',
             'new_trend' => '0',
             'status' => '',
             'status_desc' => '',
-        ]);
+        ])->categories()->attach(4);
 
         Product::create([
             'name' => 'Origami Princess Earrings',
@@ -355,11 +369,12 @@ class ProductsTableSeeder extends Seeder
             </ul>',
             'quantity' => '20',
             'featured' => '1',
-            'image' => 'PE00037-RZ0_1349x.jpg',
+            'image' => 'products/dummy/PE00037-RZ0_1349x.jpg',
+            'images' => '["products\/dummy\/PE00037-RZ0_frontside_1349x.jpg,products\/dummy\/PE00037-RZ0_1349x.jpg"]',
             'new_trend' => '0',
             'status' => '',
             'status_desc' => '',
-        ]);
+        ])->categories()->attach(4);
 
         Product::create([
             'name' => 'Diamond Angel Pendant',
@@ -380,11 +395,15 @@ class ProductsTableSeeder extends Seeder
             </ul>',
             'quantity' => '15',
             'featured' => '1',
-            'image' => 'Diamond_Angel_1349x.png',
+            'image' => 'products/dummy/Diamond_Angel_1349x.png',
+            'images' => '["products\/dummy\/Diamond_Angel_1349x.png,products\/dummy\/elaine_1_1349x.jpg"]',
             'new_trend' => '0',
             'status' => '',
             'status_desc' => '',
-        ]);
+        ])->categories()->attach(2);
+
+        $product = Product::find(16);
+        $product->categories()->attach(3);
 
         Product::create([
             'name' => 'Mesh Chain 45cm',
@@ -402,11 +421,12 @@ class ProductsTableSeeder extends Seeder
             </ul>',
             'quantity' => '12',
             'featured' => '1',
-            'image' => 'PA00022-RZ0_1349x.jpg',
+            'image' => 'products/dummy/PA00022-RZ0_1349x.jpg',
+            'images' => '["products\/dummy\/PA00022-RZ0_1349x.jpg"]',
             'new_trend' => '1',
             'status' => '',
             'status_desc' => '',
-        ]);
+        ])->categories()->attach(6);
 
         /* Product::create([
             'name' => '',

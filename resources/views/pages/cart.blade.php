@@ -58,15 +58,15 @@
                             <tbody>
                                 <tr>
                                     <td class="product-remove">
-                                        <form action="{{ route('cart.destroy', $item->rowId) }}" method="POST">
+                                        <form id="remove" action="{{ route('cart.remove', $item->rowId) }}" method="POST">
                                             {{ csrf_field() }}
                                             {{ method_field('DELETE') }}
-                                            <button type="submit" class="btn btn-lg"><i class="fa fa-trash-o"></i></button>
+                                            <button type="submit" class="btn"><i class="fa fa-trash-o fa-2x"></i></button>
                                         </form>
                                     </td>
                                     <td class="product-image">
                                     <a href="{{route('shop.show', $item->options->slug)}}">
-                                            <img style="width:255px; height:280px" src="{{asset('img/product/'.$item->options->image)}}" alt="">
+                                            <img style="width:255px; height:280px" src="{{asset('img/'.$item->options->image)}}" alt="">
                                         </a>
                                     </td>
                                     <td class="t-product-name">
@@ -76,16 +76,15 @@
                                     <p>{{$item->options->size }}</p>
                                     <p>{{$item->options->gemstone}}</p>
                                     </td>
-                                    {{-- <td class="product-edit">
-                                        <p>
-                                            <a href="#">Edit</a>
-                                        </p>
-                                    </td> --}}
                                     <td class="product-unit-price">
                                         <p>{{presentPrice($item->price)}}</p>
                                     </td>
                                     <td class="product-quantity product-cart-details">
-                                        <input type="number" value="{{$item->qty}}">
+                                        <select class="quantity" data-id="{{ $item->rowId }}">
+                                            @for ($i = 1; $i < 6; $i++)
+                                                <option {{ $item->qty == $i ? 'selected' : ''}}>{{ $i }}</option>
+                                            @endfor
+                                        </select>
                                     </td>
                                     <td class="product-quantity">
                                         <p>{{ presentPrice($item->subtotal) }}</p>
@@ -96,11 +95,15 @@
                         </table>
                     </div>
                     <div class="shopingcart-bottom-area">
-                        <a class="left-shoping-cart" href="{{route('shop.index')}}">CONTINUE SHOPPING</a>
+                        <a class="left-shoping-cart" role="button" href="{{route('shop.index')}}">CONTINUE SHOPPING</a>
                         <div class="shopingcart-bottom-area pull-right">
-                            <a class="right-shoping-cart" href="#">CLEAR SHOPPING CART</a>
-                            <a class="right-shoping-cart" href="#">UPDATE SHOPPING CART</a>
+                            <form id="removeall" action="{{ route('cart.destroy', $item->rowId) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <a id="clearall" class="right-shoping-cart" role="button">CLEAR SHOPPING CART</a>
+                            </form>
                         </div>
+
                     </div>
 
                     @else
@@ -116,6 +119,7 @@
     </div>
     <!--Cart Page Area End-->
     <!-- Discount Area Start -->
+    @if (Cart::count() >0)
     <div class="discount-area">
         <div class="container">
             <div class="row">
@@ -125,10 +129,13 @@
                             <h3>DISCOUNT CODE</h3>
                             <p>Enter your coupon code if have one</p>
                         </div>
-                        <div class="discount-middle">
-                            <input type="text" placeholder="">
-                            <a class="" href="#">APPLY COUPON</a>
-                        </div>
+                        <form id="couponform" action="{{route('coupon.store')}}" method="POST">
+                            <div class="discount-middle">
+                                @csrf
+                                <input type="text" id="coupon_code" name="coupon_code" placeholder="ABC123">
+                                <a role="button" id="applycoupon">APPLY COUPON</a>
+                            </div>
+                        </form>
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-6">
@@ -136,27 +143,86 @@
                         <div class="subtotal-area">
                             <h2>SUBTOTAL<span>{{presentPrice(Cart::subtotal())}}</span></h2>
                         </div>
+                        @if (session()->has('coupon'))
                         <div class="subtotal-area">
-                            <h2>GRAND TOTAL<span>{{presentPrice(Cart::total())}}</span></h2>
+                            <h2>DISCOUNT ({{ session()->get('coupon')['name']}})
+                                <form id="removeform" action="{{route('coupon.destroy')}}" method="POST" style="display:inline">
+                                    @csrf
+                                    @method('DELETE')
+                                    <a id="removecoupon">Remove</a>
+                                </form>
+                                <span>-{{ presentPrice($discount) }}</span>
+                            </h2>
+                        </div>
+
+                        <div class="subtotal-area">
+                            <h2>NEW SUBTOTAL<span>{{ presentPrice($newSubtotal) }}</span></h2>
+                        </div>
+                        @endif
+
+                        <div class="subtotal-area">
+                            <h2>TAX ({{config('cart.tax')}}%)<span>{{ presentPrice($newTax) }}</span></h2>
+                        </div>
+                        <div class="subtotal-area">
+                            <h2>GRAND TOTAL<span>{{ presentPrice($newTotal) }}</span></h2>
                         </div>
                         <a href="{{route('checkout.index')}}">CHECKOUT</a>
-                        <p>Checkout With Multiple Addresses</p>
+                        {{-- <p>Checkout With Multiple Addresses</p> --}}
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    @endif
+    <br>
+    <br>
+    <br>
     <!-- Discount Area End -->
 @endsection
 
-{{-- @section('extra-js')
+@section('extra-js')
 
-<script type="text/javascript">
+    <script src="{{ asset('js/app.js')}}"></script>
+    <script type="text/javascript">
 
-document.getElementById("removeid").onclick = function() {
-    document.getElementById("remove").submit();
-}
+    (function(){
+        const classname = document.querySelectorAll('.quantity')
 
-</script>
+        Array.from(classname).forEach(function(element){
+            element.addEventListener('change', function(){
+                // alert('Changed');
 
-@endsection --}}
+                const id = element.getAttribute('data-id')
+
+                axios.patch(`cart/${id}`, {
+                    quantity: this.value
+                })
+
+                .then(function (response) {
+                    console.log(response);
+                    window.location.href = '{{ route('cart.index') }}'
+                    // console.log('lol');
+                })
+                .catch(function (error) {
+                    console.log(error);
+                    window.location.href = '{{ route('cart.index') }}'
+                });
+            })
+        })
+    })();
+
+    document.getElementById("clearall").onclick = function() {
+        document.getElementById("removeall").submit();
+    }
+
+    document.getElementById("applycoupon").onclick = function() {
+        document.getElementById("couponform").submit();
+    }
+
+    document.getElementById("removecoupon").onclick = function() {
+        document.getElementById("removeform").submit();
+    }
+
+    </script>
+
+@endsection

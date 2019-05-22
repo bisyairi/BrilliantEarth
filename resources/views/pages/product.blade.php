@@ -16,33 +16,33 @@
     <div class="product-simple-area">
         <div class="container">
             <div class="row">
-                <form action="{{route('cart.store')}}" method="POST">
+                <form id="addtocart" action="{{route('cart.store')}}" method="POST" id="cartform">
                     {{ csrf_field() }}
                     <div class="col-md-6 col-sm-7">
                         <div class="single-product-image-inner">
                             <!-- Tab panes -->
                             <div class="tab-content">
                                 <div role="tabpanel" class="tab-pane active" id="one">
-                                    <a class="venobox" href="{{asset('img/product/'.$product->image)}}" data-gall="gallery" title="">
-                                        <img src="{{asset('img/product/'.$product->image)}}" alt="">
+                                    <a class="venobox" href="{{asset('img/'.$product->image)}}" data-gall="gallery" title="">
+                                        <img id="currentImage" src="{{asset('img/'.$product->image)}}" alt="product">
                                     </a>
                                 </div>
                                 <div role="tabpanel" class="tab-pane" id="two">
                                     <a class="venobox" href="img/single-product/bg-2.jpg" data-gall="gallery" title="">
-                                        <img src="img/single-product/bg-2.jpg" alt="">
+                                        <img src="{{asset('img/single-product/bg-2.jpg')}}" alt="">
                                     </a>
                                 </div>
                                 <div role="tabpanel" class="tab-pane" id="three">
                                     <a class="venobox" href="img/single-product/bg-3.jpg" data-gall="gallery" title="">
-                                        <img src="img/single-product/bg-3.jpg" alt="">
+                                        <img src="{{asset('img/single-product/bg-3.jpg')}}" alt="">
                                     </a>
                                 </div>
                             </div>
                             <!-- Nav tabs -->
                             <ul class="product-tabs" role="tablist">
-                                <li role="presentation" class="active"><a href="#one" aria-controls="one" role="tab" data-toggle="tab"><img src="img/single-product/1.jpg" alt=""></a></li>
-                                <li role="presentation"><a href="#two" aria-controls="two" role="tab" data-toggle="tab"><img src="img/single-product/2.jpg" alt=""></a></li>
-                                <li role="presentation"><a href="#three" aria-controls="three" role="tab" data-toggle="tab"><img src="img/single-product/3.jpg" alt=""></a></li>
+                                <li role="presentation" class="active"><a href="#one" aria-controls="one" role="tab" data-toggle="tab"><img src="{{asset('img/'.$product->image)}}" style="height: 150px; width:170px" alt=""></a></li>
+                                <li role="presentation"><a href="#two" aria-controls="two" role="tab" data-toggle="tab"><img src="{{asset('img/single-product/2.jpg')}}" alt=""></a></li>
+                                <li role="presentation"><a href="#three" aria-controls="three" role="tab" data-toggle="tab"><img src="{{asset('img/single-product/3.jpg')}}" alt=""></a></li>
                             </ul>
                         </div>
                     </div>
@@ -59,7 +59,7 @@
 
                             <h2>{{$product->name}}</h2>
                             {{-- <h4>{!! $stockLevel !!}</h4> --}}
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </p>
+                            <p></p>
                             <div class="single-product-price">
                                 <h2 id="prodPrice" class="prodPrice">{{$product->presentPrice()}}</h2>
                                 {{-- <p><i>Normal Retail Price: {{$product->presentPrice()}}</i></p> --}}
@@ -74,7 +74,7 @@
 
                             <p class="single-shop-select" id="gem">
                                 <label>Gemstone</label>
-                                <select id="gemStone" class="product">
+                                <select id="gemStone" name="gemStone" class="product">
                                     @foreach ($product->attributes as $gemstone)
                                     <option value="{{$gemstone->gemstone}}">{{$gemstone->gemstone}}</option>
                                     @endforeach
@@ -84,7 +84,7 @@
 
                             <p class="single-shop-select" id="colour">
                                 <label>Colour</label>
-                                <select id="productColour" class="product">
+                                <select id="productColour" name="productColour" class="product">
                                     @foreach ($product->attributes as $colour)
                                     <option value="{{$colour->colour}}">{{$colour->colour}}</option>
                                     @endforeach
@@ -94,14 +94,23 @@
 
                             <p class="single-shop-select" id="size">
                                 <label>Size</label>
-                                <select id="productSize" class="product">
-                                    <option value="0" disabled="true" selected="true">Select Size</option>
+                                <select id="productSize" name="productSize" class="product">
+                                    <option disabled selected value="0">Select Size</option>
                                     @foreach ($product->attributes as $size)
                                     <option value="{{$size->size}}">{{$size->size}}</option>
                                     @endforeach
                                 </select>
+                                @if ($errors->any())
+                                <div class="alert alert-danger"><ul>
+                                    @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                            @endif
                                 <input type="hidden" name="size" id="size2" />
                             </p>
+
 
                             <div class="product-attributes clearfix">
                                 <span class="pull-left" id="quantity-wanted-p">
@@ -110,9 +119,9 @@
                                     <span class="inc qtybutton">+</span>
                                 </span>
                                 <span>
-                                <a class="cart-btn">
+                                <a class="cart-btn" role="button" onclick="document.getElementById('addtocart').submit()">
                                     <i class="flaticon-bag"></i>
-                                    <span class="submit-span">Add to Cart</span>
+                                    <span>Add to Cart</span>
                                 </a>
                                 </span>
                             </div>
@@ -311,7 +320,7 @@
                     success:function(data){
 
                         // console.log(data);
-                        op+='<option value="0" selected disabled>Select Size</option>';
+                        op+='<option disabled selected value>Select Size</option>';
 
                         for(var i=0;i<data.length;i++){
                             op+='<option value="'+data[i].size+'">'+data[i].size+'</option>';
@@ -372,7 +381,7 @@
                     success:function(data){
 
                         // console.log(data);
-                        op+='<option value="0" selected disabled>Select Size</option>';
+                        op+='<option disabled selected value>Select Size</option>';
 
                         for(var i=0;i<data.length;i++){
                             op+='<option value="'+data[i].size+'">'+data[i].size+'</option>';
@@ -419,13 +428,14 @@
                 var size=$("#productSize").val();
                 var gemstone=$("#gemStone").val();
                 var colour=$("#productColour").val();
+                var prodid=$("#productId").val();
 
-                // console.log(gemstone, colour, size);
+                console.log(gemstone, colour, size, prodid);
 
                 $.ajax({
                     type: 'get',
                     url: '{!!URL::to('findProductId')!!}',
-                    data: {'size':size, 'gemstone':gemstone, 'colour':colour},
+                    data: {'size':size, 'gemstone':gemstone, 'colour':colour, 'prodid':prodid},
                     dataType:'json',
                     success:function(data){
 
@@ -452,6 +462,18 @@
                 document.getElementById("colour2").value = '';
                 document.getElementById("prodSku").value = '';
                 }
+
+
+            // $("#cartform").submit(function(event){
+            //     // var valDDL = $(this).val();
+            //     //event.preventDefault();
+            //     var valDDL = $("#productSize").val();
+            //     if(valDDL==""){
+            //         event.preventDefault();
+            //         alert("select dropdown option");
+            //     }
+            // });
+
         });
 
         /* $(document).on('change','#gemStone',function(){

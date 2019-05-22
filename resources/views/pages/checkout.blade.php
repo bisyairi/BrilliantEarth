@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('extra-script')
+<script src="https://www.paypal.com/sdk/js?client-id=AZqm_IlseI_rSC0u4vTu69gMyU9fLm749II961CIYjuVp1GZEDV1NDIRWgze2vg1VH3qLgDY3qp2Rhl3&currency=MYR"></script>
+@endsection
+
 @section('content')
     <!-- Breadcrumbs Area Start -->
     <div class="breadcrumbs-area2">
@@ -17,17 +21,35 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-7 col-sm-7">
+
+                        <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="headingPaypal">
+                                    <h4 class="panel-title" style="text-align:center">
+                                        <a class="collapsed" role="button" data-toggle="collapse" aria-expanded="true" aria-controls="paypalmethod">
+                                          Express Checkout
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="paypalmethod" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingPaypal">
+                                    <div class="panel-body no-padding">
+                                        <div class="payment-met">
+                                            <div id="paypal-button-container"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                         <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="headingOne">
                                 <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#checkoutmethod" aria-expanded="false" aria-controls="checkoutmethod">
                                        <span>1</span>
                                        Checkout Method
                                     </a>
                                 </h4>
                             </div>
-                            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                            <div id="checkoutmethod" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
                                 <div class="panel-body">
                                     <div class="row">
                                         <div class="col-md-6 col-sm-6">
@@ -35,19 +57,16 @@
                                             <h4>Register with us for future convenience:</h4>
                                             <form action="#">
                                                 <div class="check-register">
-                                                    <input type="radio" />
+                                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked/>
                                                     <label>Checkout as Guest</label>
-                                                </div>
-                                                <div class="check-register">
-                                                    <input type="radio" />
-                                                    <label>Register</label>
                                                 </div>
                                             </form>
                                             <p>Register and save time!</p>
                                             <p>Register with us for future convenience:</p>
                                             <p>Fast and easy check out</p>
                                             <p>Easy access to your order history and status</p>
-                                            <button class="btn btn-default" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="multiCollapseExample2">CONTINUE</button>
+                                            <button class="btn btn-default" type="button" data-toggle="collapse" data-parent="#accordion" data-target="#billinginformation" aria-expanded="false" aria-controls="billinginformation" style="margin: 79px; margin-left:auto">CONTINUE</button>
+
                                         </div>
                                         <div class="col-md-6 col-sm-6">
                                             <h2 class="collapse-title">LOGIN</h2>
@@ -75,13 +94,13 @@
                         <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="headingTwo">
                                 <h4 class="panel-title">
-                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#billinginformation" aria-expanded="false" aria-controls="billinginformation">
                                        <span>2</span>
                                        Billing Information
                                     </a>
                                 </h4>
                             </div>
-                            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                            <div id="billinginformation" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                                 <div class="panel-body">
                                     <div class="row">
                                         {{-- <div class="col-md-12">
@@ -102,55 +121,49 @@
                                         <div class="col-md-6">
                                             <p class="form-row">
                                                 <label>First Name<span class="required">*</span></label>
-                                                <input type="text">
+                                                <input type="text" name="firstname">
                                             </p>
                                         </div>
                                         <div class="col-md-6">
                                             <p class="form-row">
                                                 <label>Last Name<span class="required">*</span></label>
-                                                <input type="text">
-                                            </p>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <p class="form-row">
-                                                <label>Company Name</label>
-                                                <input type="text">
+                                                <input type="text" name="lastname">
                                             </p>
                                         </div>
                                         <div class="col-md-12">
                                             <p class="form-row">
                                                 <label>Address<span class="required">*</span></label>
-                                                <input type="text" placeholder="Street address">
+                                                <input type="text" name="address" placeholder="Street address">
                                             </p>
                                         </div>
                                         <div class="col-md-12">
                                             <p class="form-row">
-                                                <label>Town / City<span class="required">*</span></label>
-                                                <input type="text" placeholder="Town / City">
+                                                <label>City<span class="required">*</span></label>
+                                                <input type="text" name="city" placeholder="Town / City">
                                             </p>
                                         </div>
                                         <div class="col-md-6">
                                             <p class="form-row">
-                                                <label>State / County<span class="required">*</span></label>
-                                                <input type="text">
+                                                <label>State<span class="required">*</span></label>
+                                                <input type="text" name="state">
                                             </p>
                                         </div>
                                         <div class="col-md-6">
                                             <p class="form-row">
-                                                <label>Postcode / Zip<span class="required">*</span></label>
-                                                <input type="text" placeholder="Postcode / Zip">
+                                                <label>Postcode<span class="required">*</span></label>
+                                                <input type="text" name="postcode" placeholder="Postcode / Zip">
                                             </p>
                                         </div>
                                         <div class="col-md-6">
                                             <p class="form-row">
                                                 <label>Email Address<span class="required">*</span></label>
-                                                <input type="text">
+                                                <input type="text" name="email">
                                             </p>
                                         </div>
                                         <div class="col-md-6">
                                             <p class="form-row">
                                                 <label>Phone<span class="required">*</span></label>
-                                                <input type="text" placeholder="Phone">
+                                                <input type="text" name="phone" placeholder="Phone">
                                             </p>
                                         </div>
                                         <div class="col-md-12">
@@ -162,7 +175,7 @@
                                                 <p>Create an account by entering the information below. If you are a returning customer please login at the top of the page.</p>
                                                 <p class="form-row">
                                                     <label>Phone<span class="required">*</span></label>
-                                                    <input type="text" placeholder="Phone">
+                                                    <input type="text" name="phone1" placeholder="Phone">
                                                 </p>
                                             </div>
                                         </div>
@@ -173,13 +186,13 @@
                         <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="headingThree">
                                 <h4 class="panel-title">
-                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#shoppingmethod" aria-expanded="false" aria-controls="shoppingmethod">
                                        <span>3</span>
-                                       Shopping Method
+                                       Shipping Method
                                     </a>
                                 </h4>
                             </div>
-                            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                            <div id="shoppingmethod" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
                                 <div class="panel-body">
                                     <div class="different-address">
                                         <div class="ship-different-title">
@@ -189,7 +202,7 @@
                                             </h3>
                                         </div>
                                         <div id="ship-box-info" class="row">
-                                            <div class="col-md-12">
+                                            {{-- <div class="col-md-12">
                                                 <div class="shop-select">
                                                     <label>Country <span class="required">*</span></label>
                                                     <select>
@@ -203,65 +216,59 @@
                                                         <option value="audi5">Dominican Republic</option>
                                                     </select>
                                                 </div>
-                                            </div>
+                                            </div> --}}
                                             <div class="col-md-6">
                                                 <p class="form-row">
                                                     <label>First Name<span class="required">*</span></label>
-                                                    <input type="text">
+                                                    <input type="text" name="firstname1">
                                                 </p>
                                             </div>
                                             <div class="col-md-6">
                                                 <p class="form-row">
                                                     <label>Last Name<span class="required">*</span></label>
-                                                    <input type="text">
-                                                </p>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <p class="form-row">
-                                                    <label>Company Name</label>
-                                                    <input type="text">
+                                                    <input type="text" name="lastname1">
                                                 </p>
                                             </div>
                                             <div class="col-md-12">
                                                 <p class="form-row">
                                                     <label>Address<span class="required">*</span></label>
-                                                    <input type="text" placeholder="Street address">
+                                                    <input type="text" name="address1" placeholder="Street address">
                                                 </p>
                                             </div>
                                             <div class="col-md-12">
                                                 <p class="form-row">
-                                                    <label>Town / City<span class="required">*</span></label>
-                                                    <input type="text" placeholder="Town / City">
+                                                    <label>City<span class="required">*</span></label>
+                                                    <input type="text" name="city1" placeholder="Town / City">
                                                 </p>
                                             </div>
                                             <div class="col-md-6">
                                                 <p class="form-row">
-                                                    <label>State / County<span class="required">*</span></label>
-                                                    <input type="text">
+                                                    <label>State<span class="required">*</span></label>
+                                                    <input type="text" name="state1">
                                                 </p>
                                             </div>
                                             <div class="col-md-6">
                                                 <p class="form-row">
-                                                    <label>Postcode / Zip<span class="required">*</span></label>
-                                                    <input type="text" placeholder="Postcode / Zip">
+                                                    <label>Postcode<span class="required">*</span></label>
+                                                    <input type="text" name="postcode1" placeholder="Postcode / Zip">
                                                 </p>
                                             </div>
                                             <div class="col-md-6">
                                                 <p class="form-row">
                                                     <label>Email Address<span class="required">*</span></label>
-                                                    <input type="text">
+                                                    <input type="text" name="email1">
                                                 </p>
                                             </div>
                                             <div class="col-md-6">
                                                 <p class="form-row">
                                                     <label>Phone<span class="required">*</span></label>
-                                                    <input type="text" placeholder="Phone">
+                                                    <input type="text" name="phone2" placeholder="Phone">
                                                 </p>
                                             </div>
                                         </div>
                                         <div class="order-notes">
                                             <label>Order Notes</label>
-                                            <textarea placeholder="Notes about your order, e.g. special notes for delivery." rows="10" cols="30" id="checkout-mess"></textarea>
+                                            <textarea name="ordernote" placeholder="Notes about your order, e.g. special notes for delivery." rows="10" cols="30" id="checkout-mess"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -270,29 +277,59 @@
                         <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="headingFour">
                                 <h4 class="panel-title">
-                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#paymentmethod" aria-expanded="false" aria-controls="paymentmethod">
                                        <span>4</span>
-                                       Payment Information
+                                       Payment Method
                                     </a>
                                 </h4>
                             </div>
-                            <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                            <div id="paymentmethod" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
                                 <div class="panel-body no-padding">
                                     <div class="payment-met">
                                         <form action="#" id="payment-form">
                                             <ul class="form-list">
                                                 <li class="control">
                                                     <input type="radio" class="radio" title="Check / Money order" name="payment[method]" id="p_method_checkmo">
-                                                    <label for="p_method_checkmo">Check / Money order </label>
+                                                    <img style="height:25px" alt="PayPal" src="//cdn.shopify.com/s/assets/checkout/offsite-gateway-logos/paypal@2x-2cabd13111981089fdf7f9faee0ef21550690cd2d380dede9fb7bc8c1253b3c6.png">
+                                                    <span style="float: right">
+                                                        <span>
+                                                            <span class="visually-hidden">
+                                                                <img style="height:25px" alt="PayPal" src="//cdn.shopify.com/s/assets/payment_icons/visa-319d545c6fd255c9aad5eeaad21fd6f7f7b4fdbdb1a35ce83b89cca12a187f00.svg">
+                                                            </span>
+                                                        </span>
+                                                        <span>
+                                                            <span class="visually-hidden">
+                                                                <img style="height:25px" alt="PayPal" src="https://cdn.shopify.com/s/assets/payment_icons/master-173035bc8124581983d4efa50cf8626e8553c2b311353fbf67485f9c1a2b88d1.svg">
+                                                            </span>
+                                                        </span>
+                                                        <span>
+                                                            <span class="visually-hidden">
+                                                                <img style="height:25px" alt="PayPal" src="https://cdn.shopify.com/s/assets/payment_icons/american_express-ed5c54cf3ceb18cd4deb3687857b816c07e4f4c7e8719da4a206cea3e7961be1.svg">
+                                                            </span>
+                                                        </span>
+                                                    </span>
                                                 </li>
+                                                <br>
                                                 <li class="control">
                                                     <input type="radio" class="radio" title="Credit Card (saved)" name="payment[method]" id="p_method_ccsave">
-                                                    <label for="p_method_ccsave">Credit Card (saved) </label>
+                                                    <img alt="iPay88 Malaysia" class="offsite-payment-gateway-logo" src="https://cdn.shopify.com/s/files/applications/073816cdc0d59bdfd1ae4456ba7b8736.png?height=24&amp;1519702867">
+                                                    <span style="float: right">
+                                                        <span>
+                                                            <span class="visually-hidden">
+                                                                <img style="height:25px" alt="PayPal" src="//cdn.shopify.com/s/assets/payment_icons/visa-319d545c6fd255c9aad5eeaad21fd6f7f7b4fdbdb1a35ce83b89cca12a187f00.svg">
+                                                            </span>
+                                                        </span>
+                                                        <span>
+                                                            <span class="visually-hidden">
+                                                                <img style="height:25px" alt="PayPal" src="https://cdn.shopify.com/s/assets/payment_icons/master-173035bc8124581983d4efa50cf8626e8553c2b311353fbf67485f9c1a2b88d1.svg">
+                                                            </span>
+                                                        </span>
+                                                    </span>
                                                 </li>
                                             </ul>
                                         </form>
                                         <div class="buttons-set">
-                                            <button class="btn btn-default">CONTINUE</button>
+                                            <button class="btn btn-default" type="button" data-toggle="collapse" data-parent="#accordion" data-target="#paymentinformation" aria-expanded="false" aria-controls="paymentinformation">CONTINUE</button>
                                         </div>
                                     </div>
                                 </div>
@@ -301,13 +338,13 @@
                         <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="headingFive">
                                 <h4 class="panel-title">
-                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#paymentinformation" aria-expanded="false" aria-controls="paymentinformation">
                                        <span>5</span>
                                        Payment Information
                                     </a>
                                 </h4>
                             </div>
-                            <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+                            <div id="paymentinformation" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
                                 <div class="panel-body no-padding">
                                     <div class="order-review" id="checkout-review">
                                         <div class="table-responsive" id="checkout-review-table-wrapper">
@@ -323,7 +360,7 @@
                                                 @foreach (Cart::content() as $item)
                                                 <tbody>
                                                     <tr>
-                                                        <td><h3 class="product-name">{{$item->name}}</h3></td>
+                                                        <td><h3 class="product-name">{{$item->name}} - {{$item->options->gemstone}} {{$item->options->colour}} {{$item->options->size}}</h3></td>
                                                         <td><span class="cart-price"><span class="price">{{presentPrice($item->price)}}</span></span></td>
                                                         <td>{{$item->qty}}</td>
                                                         <!-- sub total starts here -->
@@ -336,13 +373,27 @@
                                                         <td colspan="3">Subtotal</td>
                                                         <td><span class="price">{{presentPrice(Cart::subtotal())}}</span></td>
                                                     </tr>
+                                                    @if (session()->has('coupon'))
+                                                    <tr>
+                                                        <td colspan="3">Discount</td>
+                                                        <td><span class="price">{{presentPrice($discount)}}</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="3">New Subtotal</td>
+                                                        <td><span class="price">{{presentPrice($newSubtotal)}}</span></td>
+                                                    </tr>
+                                                    @endif
+                                                    <tr>
+                                                        <td colspan="3">Tax ({{config('cart.tax')}}%)</td>
+                                                        <td><span class="price">{{presentPrice($newTax)}}</span></td>
+                                                    </tr>
                                                     <tr>
                                                         <td colspan="3">Shipping Handling (Flat Rate - Fixed)</td>
-                                                        <td><span class="price">Free for now :p</span></td>
+                                                        <td><span class="price">Free for now</span></td>
                                                     </tr>
                                                     <tr>
                                                         <td colspan="3"><strong>Grand Total</strong></td>
-                                                        <td><strong><span class="price">{{presentPrice(Cart::total())}}</span></strong></td>
+                                                        <td><strong><span class="price">{{presentPrice($newTotal)}}</span></strong></td>
                                                     </tr>
                                                 </tfoot>
                                             </table>
@@ -363,10 +414,10 @@
                     <div class="checkout-widget">
                         <h2 class="widget-title">YOUR CHECKOUT PROGRESS</h2>
                         <ul>
-                            <li><a data-toggle="collapse" href="#collapseOne" role="button" aria-expanded="false" aria-controls="collapseOne"><i class="fa fa-minus"></i> Billing Address</a></li>
-                            <li><a data-toggle="collapse" href="#collapseTwo" role="button" aria-expanded="false" aria-controls="collapseTwo"><i class="fa fa-minus"></i> Shipping Address</a></li>
-                            <li><a data-toggle="collapse" href="#collapseThree" role="button" aria-expanded="false" aria-controls="collapseThree"><i class="fa fa-minus"></i> Shipping Method</a></li>
-                            <li><a data-toggle="collapse" href="#collapseFour" role="button" aria-expanded="false" aria-controls="collapseFour"><i class="fa fa-minus"></i> Payment Method</a></li>
+                            <li><a data-toggle="collapse" href="#checkoutmethod" role="button" data-parent="#accordion" aria-expanded="false" aria-controls="checkoutmethod"><i class="fa fa-minus"></i> Checkout Method</a></li>
+                            <li><a data-toggle="collapse" href="#billinginformation" role="button" data-parent="#accordion" aria-expanded="false" aria-controls="billinginformation"><i class="fa fa-minus"></i> Shipping Address</a></li>
+                            <li><a data-toggle="collapse" href="#shoppingmethod" role="button" data-parent="#accordion" aria-expanded="false" aria-controls="shoppingmethod"><i class="fa fa-minus"></i> Shipping Method</a></li>
+                            <li><a data-toggle="collapse" href="#paymentmethod" role="button" data-parent="#accordion" aria-expanded="false" aria-controls="paymentmethod"><i class="fa fa-minus"></i> Payment Method</a></li>
                         </ul>
                     </div>
                 </div>
@@ -374,4 +425,39 @@
         </div>
     </div>
     <!--Check Out Area End-->
+@endsection
+
+@section('extra-js')
+
+<script>
+
+    paypal.Buttons({
+        createOrder: function (data, actions) {
+            return actions.order.create({
+                purchase_units: [{
+                    amount: {
+                        value: '0.01'
+                    }
+                }]
+            });
+        },
+        onApprove: function (data, actions) {
+            return actions.order.capture().then(function (details) {
+                alert('Transaction completed by ' + details.payer.name.given_name);
+                // Call your server to save the transaction
+                return fetch('/paypal-transaction-complete', {
+                    method: 'post',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        orderID: data.orderID
+                    })
+                });
+            });
+        }
+    }).render('#paypal-button-container');
+
+</script>
+
 @endsection
