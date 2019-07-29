@@ -28,11 +28,11 @@
                                 </a>
                             </div>
 
-                            @foreach (json_decode($product->images, true) as $image)
+                            {{-- @foreach (json_decode($product->images, true) as $image)
                             <div role="tabpanel" class="tab-pane" id="image2">
                                 <a class="venobox" href="{{ productImage($image) }}" data-gall="gallery" title=""><img src="{{ productImage($image) }}" alt=""></a>
                             </div>
-                            @endforeach
+                            @endforeach --}}
 
                         </div>
 
