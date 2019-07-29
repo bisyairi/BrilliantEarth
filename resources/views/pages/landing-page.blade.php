@@ -54,7 +54,7 @@
                             <div class="col-50 padding-right">
                                 @foreach ($newproduct1 as $product)
                                 <div class="single-top-product">
-                                    <img style="width:580px; height:346px" src="{{asset('img/'.$product->image)}}" alt="">
+                                    <img style="width:580px; height:346px" src="{{ productImage($product->image) }}" alt="">
                                     <div class="overlay-content">
                                         <a href="/shop"><h3>{{$product->name}} <br>  {{$product->details}}</h3></a>
                                         <a href="/shop" class="btn-product">Shop Now</a>
@@ -63,7 +63,7 @@
                                 @endforeach
                                 @foreach ($newproduct2 as $product)
                                 <div class="single-top-product">
-                                    <img style="width:580px; height:420px" src="{{asset('img/'.$product->image)}}" alt="">
+                                    <img style="width:580px; height:420px" src="{{ productImage($product->image) }}" alt="">
                                     <div class="overlay-content">
                                         <a href="/shop"><h3>{{$product->name}} <br>  {{$product->details}}</h3></a>
                                         <a href="/shop" class="btn-product">Shop Now</a>
@@ -74,7 +74,7 @@
                             <div class="col-50 padding-left">
                                 @foreach ($newproduct3 as $product)
                                 <div class="single-top-product">
-                                    <img style="width:580px; height:420px" src="{{asset('img/'.$product->image)}}" alt="">
+                                    <img style="width:580px; height:420px" src="{{ productImage($product->image) }}" alt="">
                                     <div class="overlay-content">
                                         <a href="/shop"><h3>{{$product->name}} <br>  {{$product->details}}</h3></a>
                                         <a href="/shop" class="btn-product">Shop Now</a>
@@ -83,7 +83,7 @@
                                 @endforeach
                                 @foreach ($newproduct4 as $product)
                                 <div class="single-top-product">
-                                    <img style="width:580px; height:346px" src="{{asset('img/'.$product->image)}}" alt="">
+                                    <img style="width:580px; height:346px" src="{{ productImage($product->image) }}" alt="">
                                     <div class="overlay-content">
                                         <a href="/shop"><h3>{{$product->name}} <br>  {{$product->details}}</h3></a>
                                         <a href="/shop" class="btn-product">Shop Now</a>
@@ -103,7 +103,7 @@
                             @foreach ($newtrend as $key => $trend)
                             <div class="col-md-4">
                                 <div class="single-new-trend">
-                                    <a href="/shop"><img src="{{asset('img/'.$trend->image)}}" alt=""></a>
+                                    <a href="/shop"><img src="{{asset('storage/'.$trend->image)}}" alt=""></a>
                                     <div class="overlay-content">
                                     <a href="/shop"><h2>{{$trend->presentPrice()}}</h2></a>
                                         <a href="/shop" class="btn-small">Now</a>
@@ -115,7 +115,7 @@
                                                 <li>
                                                 <a href="#" class="show-modal" title="Quick view" data-toggle="modal" data-target="#productModal"
                                                 data-id="{{$trend->id}}" data-desc="{{$trend->description}}"
-                                                data-image="{{asset('img/'.$trend->image)}}" data-price="{{$trend->presentPrice()}}"
+                                                data-image="{{ productImage($trend->image) }}" data-price="{{$trend->presentPrice()}}"
                                                 data-name="{{$trend->name}}"><i class="flaticon-view"></i></a>
                                                 </li>
                                             </ul>
@@ -166,7 +166,7 @@
                         @foreach ($featured as $key => $feature)
                         <div class="col-md-3">
                             <div class="single-new-trend">
-                                <a href="/shop"><img src="{{asset('img/'.$feature->image)}}" alt=""></a>
+                                <a href="/shop"><img src="{{ productImage($feature->image) }}" alt=""></a>
                                 <div class="overlay-content">
                                 <a href="/shop"><h2>{{ $feature->presentPrice() }}</h2></a>
                                     <a href="/shop" class="btn-small">Now</a>
@@ -177,7 +177,7 @@
                                             </li>
 											<li>
                                                 <a href="#" title="Quick view" data-toggle="modal" data-target="#productModal"
-                                                data-desc="{{$feature->description}}" data-image="{{asset('img/'.$feature->image)}}"
+                                                data-desc="{{$feature->description}}" data-image="{{ productImage($feature->image) }}"
                                                 data-price="{{$feature->presentPrice()}}" data-name="{{$feature->name}}"><i class="flaticon-view"></i></a>
 											</li>
                                         </ul>

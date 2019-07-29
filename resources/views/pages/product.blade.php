@@ -22,28 +22,44 @@
                         <div class="single-product-image-inner">
                             <!-- Tab panes -->
                             <div class="tab-content">
-                                <div role="tabpanel" class="tab-pane active" id="one">
-                                    <a class="venobox" href="{{asset('img/'.$product->image)}}" data-gall="gallery" title="">
-                                        <img id="currentImage" src="{{asset('img/'.$product->image)}}" alt="product">
-                                    </a>
-                                </div>
-                                <div role="tabpanel" class="tab-pane" id="two">
-                                    <a class="venobox" href="img/single-product/bg-2.jpg" data-gall="gallery" title="">
-                                        <img src="{{asset('img/single-product/bg-2.jpg')}}" alt="">
-                                    </a>
-                                </div>
-                                <div role="tabpanel" class="tab-pane" id="three">
-                                    <a class="venobox" href="img/single-product/bg-3.jpg" data-gall="gallery" title="">
-                                        <img src="{{asset('img/single-product/bg-3.jpg')}}" alt="">
-                                    </a>
-                                </div>
+                            <div role="tabpanel" class="tab-pane active">
+                                <a class="venobox" href="{{ productImage($product->image) }}" data-gall="gallery" title="">
+                                    <img src="{{ productImage($product->image) }}" alt="">
+                                </a>
                             </div>
+
+                            @foreach (json_decode($product->images, true) as $image)
+                            <div role="tabpanel" class="tab-pane" id="image2">
+                                <a class="venobox" href="{{ productImage($image) }}" data-gall="gallery" title=""><img src="{{ productImage($image) }}" alt=""></a>
+                            </div>
+                            @endforeach
+
+                        </div>
+
+
+                        <ul class="product-tabs" role="tablist">
+
+                            <li role="presentation">
+                                <a class="venobox" href="{{ productImage($product->image) }}" data-gall="gallery">
+                                    <img src="{{ productImage($product->image) }}" style="height: 150px; width:170px" alt="">
+                                </a>
+                            </li>
+
+                            @if ($product->images)
                             <!-- Nav tabs -->
-                            <ul class="product-tabs" role="tablist">
-                                <li role="presentation" class="active"><a href="#one" aria-controls="one" role="tab" data-toggle="tab"><img src="{{asset('img/'.$product->image)}}" style="height: 150px; width:170px" alt=""></a></li>
-                                <li role="presentation"><a href="#two" aria-controls="two" role="tab" data-toggle="tab"><img src="{{asset('img/single-product/2.jpg')}}" alt=""></a></li>
-                                <li role="presentation"><a href="#three" aria-controls="three" role="tab" data-toggle="tab"><img src="{{asset('img/single-product/3.jpg')}}" alt=""></a></li>
+
+                            @foreach (json_decode($product->images, true) as $image)
+                            <li role="presentation">
+                            <a class="venobox" href="{{ productImage($image) }}" data-gall="gallery"">
+                                    <img src="{{ productImage($image) }}" style="height: 150px; width:170px" alt="">
+                                </a>
+                            </li>
+                            @endforeach
+
+                            @endif
+
                             </ul>
+
                         </div>
                     </div>
 
@@ -205,7 +221,7 @@
                     @foreach ($mightAlsoLike as $item)
                     <div class="col-md-3">
                         <div class="single-new-trend">
-                            <a href="{{ route('shop.show', $item->slug) }}"><img src="{{asset('img/product/'.$item->image)}}" alt=""></a>
+                            <a href="{{ route('shop.show', $item->slug) }}"><img src="{{ productImage($item->image) }}" alt=""></a>
                             <div class="overlay-content">
                                 <a href="{{ route('shop.show', $item->slug) }}"><h2>{{$item->presentPrice()}}</h2></a>
                                 <a href="{{ route('shop.show', $item->slug) }}" class="btn-small">Now</a>
@@ -462,7 +478,6 @@
                 document.getElementById("colour2").value = '';
                 document.getElementById("prodSku").value = '';
                 }
-
 
             // $("#cartform").submit(function(event){
             //     // var valDDL = $(this).val();

@@ -40,7 +40,7 @@
             </div>
             <div class="col-md-3 col-sm-6">
                 <div class="footer-widget widget-contact-us">
-                    <h2 class="footer-w-title">CONTACT US</h2>
+                    <h2 class="footer-w-title"><a href="/contact-us">CONTACT US</a></h2>
                     <ul class="footer-list">
                         <li><p><span>Address: </span> No 122, New dhara street 55 <br>New York city, NY, United States.</p></li>
                         <li><p><span>Phone: </span> 00(123)456789</p></li>
@@ -55,8 +55,7 @@
                         <li><a href="#">Shipping policy</a></li>
                         <li><a href="#">Return policy</a></li>
                         <li><a href="#">Terms and conditions</a></li>
-                        <li><a href="#">Your account</a></li>
-                        <li><a href="#">Contact us</a></li>
+                        <li><a href="/contact-us">Contact us</a></li>
                     </ul>
                 </div>
             </div>
@@ -76,7 +75,7 @@
                 <div class="footer-widget">
                     <h2 class="footer-w-title">INFORMATION</h2>
                     <ul class="footer-list">
-                        <li><a href="#">About Us</a></li>
+                        <li><a href="/about">About Us</a></li>
                         <li><a href="#">Delivery Information</a></li>
                         <li><a href="#">Privacy & Policy</a></li>
                         <li><a href="#">Terms & Conditions</a></li>

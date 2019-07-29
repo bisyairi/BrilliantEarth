@@ -107,7 +107,7 @@
                                    <div class="col-md-4 col-sm-6">
                                        <div class="single-product">
                                            <a href="{{ route('shop.show', $product->slug) }}">
-                                               <img src="{{asset('img/'.$product->image)}}" alt="">
+                                               <img src="{{ productImage($product->image) }}" alt="">
                                            </a>
                                            <div class="single-product-overlay {{ $product->status }}">
                                                <h3>{{ $product->status_desc }}</h3>
@@ -132,7 +132,7 @@
                                         @foreach ($products as $product)
                                         <div class="shop-list-single">
                                             <div class="shop-list-left">
-                                                <a href="#"><img style="width:270px; height:345px" src="{{asset('img/product/'.$product->image)}}" alt="" /></a>
+                                                <a href="#"><img style="width:270px; height:345px" src="{{ productImage($product->image) }}" alt="" /></a>
                                             </div>
                                             <div class="shop-list-right">
                                                 <div class="left-content">

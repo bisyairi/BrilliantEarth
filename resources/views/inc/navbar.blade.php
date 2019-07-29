@@ -5,30 +5,26 @@
             <div class="row">
                 <div class="col-md-6 hidden-xs">
                     <div class="header-top-message pull-left">
-                        <span><i class="fa fa-envelope"></i>admin@themepure.net</span>
-                        <span><i class="fa fa-phone"></i>+8801737 803547</span>
+                        <span><i class="fa fa-envelope"></i>bisyairi@gmail.com</span>
+                        <span><i class="fa fa-phone"></i>+60182968823</span>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="header-top-menu pull-right">
                         <ul class="nav-menu">
-                            <li><a href="/login">LOGIN</a></li>
-                            <li><a href="#">LANGUAGE</a>
-                                <div class="ht-menu-down">
-                                    <ul>
-                                        <li><a href="#">Malay</a></li>
-                                        <li><a href="#">English</a></li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li><a href="#">CURRENCY</a>
-                                <div class="ht-menu-down">
-                                    <ul>
-                                        <li><a href="#">MYR</a></li>
-                                        <li><a href="#">USD</a></li>
-                                    </ul>
-                                </div>
-                            </li>
+                            @guest
+                            <li><a href="{{ route('login')}}">LOGIN</a></li>
+                            <li><a href="{{ route('register')}}">CREATE ACCOUNT</a></li>
+                            @else
+                            <a href="{{ route('logout')}}"
+                            onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                            Logout</a>
+
+                            <form id="logout-form" action="{{ route('logout')}}" method="POST" style="display:none;">
+                                {{ csrf_field() }}
+                            </form>
+                            @endguest
                         </ul>
                     </div>
                 </div>
@@ -45,64 +41,63 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-md-10 col-sm-9 hidden-xs">
-                    <div class="mainmenu text-center">
-                        <nav>
-                            <ul id="nav">
-                                <li><a href="/">HOME</a></li>
-                                <li><a href="/shop">DIAMOND</a></li>
-                                <li><a href="/shop">COLLECTION</a></li>
-                                <li><a href="#">Pages</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="/about">About Us</a></li>
-                                        <li><a href="/cart">Cart Page</a></li>
-                                        <li><a href="/checkout">Check Out</a></li>
-                                        <li><a href="/contact-us">Contact</a></li>
-                                        <li><a href="/login">Login</a></li>
-                                        <li><a href="/my-account">My Account</a></li>
-                                        <li><a href="/shop">Shopping Page</a></li>
-                                        <li><a href="/single-product">Single Shop Page</a></li>
-                                        <li><a href="/wishlist">Wishlist Page</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="/contact-us">CONTACT US</a></li>
-                            </ul>
-                        </nav>
+
+                {{ menu('main', 'inc.menus.main') }}
+
+                @if (Cart::count() >0)
+
+                <div class="col-md-1 col-sm-1 col-xs-6">
+                    <div class="header-cart pull-right">
+                        <ul>
+                            <li>
+                                <a class="header-cart-link" href="{{ route('cart.index') }}">
+                                    <i class="flaticon-bag"></i>
+                                    @if (Cart::instance('default')->count() > 0)
+                                    <span>{{ Cart::instance('default')->count() }}</span>
+                                    @endif
+                                </a>
+                                <div class="cart_down_area">
+                                    @foreach(Cart::content() as $item)
+                                    <div class="cart_single">
+                                        <a href="{{route('shop.show', $item->options->slug)}}">
+                                            <img style="width:50px; height:70px" src="{{ productImage($item->options->image) }}" alt="">
+                                        </a>
+                                        <h2>
+                                            <a href="{{ route('shop.show', $item->options->slug) }}">{{$item->name}}</a>
+                                            <form id="remove" action="{{ route('cart.remove', $item->rowId) }}" method="POST">
+                                                {{ csrf_field() }}
+                                                {{ method_field('DELETE') }}
+                                                <a href="javascript:;" onclick="parentNode.submit();">
+                                                    <span><i class="fa fa-trash"></i></span>
+                                                </a>
+                                            </form>
+                                        </h2>
+                                        <p>{{$item->qty}} x {{presentPrice($item->price)}}</p>
+                                    </div>
+                                    @endforeach
+                                    <div class="cart_shoptings">
+                                        <a href="/checkout">Checkout</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
+
+                @else
                 <div class="col-md-1 col-sm-1 col-xs-6">
-                        <div class="header-cart pull-right">
-                                {{-- <ul> --}}
-                                    {{-- <li> --}}
-                                        <a class="header-cart-link" href="{{ route('cart.index') }}">
-                                            <i class="flaticon-bag"></i>
-                                            @if (Cart::instance('default')->count() > 0)
-                                            <span>{{ Cart::instance('default')->count() }}</span>
-                                            @endif
-                                        </a>
-                                           {{-- <div class="cart_down_area">
-                                               <div class="cart_single">
-                                                   <a href="">
-                                                       <img style="width:50px; height:70px" src="" alt="">
-                                                   </a>
-                                                   <h2>
-                                                       <a href=""></a>
-
-                                                       <button type="submit" class="btn btn-xs">
-                                                           <span><i class="fa fa-trash"></i></span>
-                                                       </button>
-
-                                                   </h2>
-                                                   <p></p>
-                                               </div>
-                                               <div class="cart_shoptings">
-                                                   <a href="/checkout">Checkout</a>
-                                               </div>
-                                           </div> --}}
-                                        {{-- </li> --}}
-                                    {{-- </ul> --}}
-                                </div>
+                    <div class="header-cart pull-right">
+                        <ul>
+                            <li>
+                                <a class="header-cart-link" href="{{ route('cart.index') }}">
+                                    <i class="flaticon-bag"></i>
+                                    <span>0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
+                @endif
             </div>
         </div>
     </div>

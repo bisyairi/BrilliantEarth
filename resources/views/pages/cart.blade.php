@@ -66,7 +66,7 @@
                                     </td>
                                     <td class="product-image">
                                     <a href="{{route('shop.show', $item->options->slug)}}">
-                                            <img style="width:255px; height:280px" src="{{asset('img/'.$item->options->image)}}" alt="">
+                                            <img style="width:255px; height:280px" src="{{ productImage($item->options->image) }}" alt="">
                                         </a>
                                     </td>
                                     <td class="t-product-name">

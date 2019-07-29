@@ -1,4 +1,5 @@
 <?php
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,8 +35,11 @@ Route::post('/coupon', 'CouponsController@store')->name('coupon.store');
 Route::delete('/coupon', 'CouponsController@destroy')->name('coupon.destroy');
 
 
-Route::get('/checkout', 'CheckoutController@index')->name('checkout.index');
+Route::get('/checkout', 'CheckoutController@index')->name('checkout.index')->middleware('auth');
 // Route::post('/checkout', 'CheckoutController@store')->name('checkout.store');
+
+Route::get('/paypal-transaction-complete', 'PaymentController@execute');
+
 
 
 
@@ -48,3 +52,16 @@ Route::get('/checkout', 'CheckoutController@index')->name('checkout.index');
 // Route::get('/single-product', 'PagesController@singleproduct');
 // Route::get('/thank-you', 'PagesController@thankyou');
 // Route::get('/wishlist', 'PagesController@wishlist');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
