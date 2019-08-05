@@ -142,23 +142,23 @@
                                 </span>
                             </div>
 
-                            <div class="add-to-wishlist">
+                            {{-- <div class="add-to-wishlist">
                                 <a class="wish-btn" href="cart.html">
                                     <i class="flaticon-favorite"></i>
                                     <span>ADD TO WISHLIST</span>
                                 </a>
-                            </div>
-                            <div class="single-product-categories">
-                            {{-- <label>Categories:</label>
+                            </div> --}}
+                            {{-- <div class="single-product-categories">
+                            <label>Categories:</label>
                                 <span>Girls Optical, Large ( Ages 9- 14 ), Small ( Ages 2-8 ).</span>
                             </div> --}}
-                            <div id="product-comments-block-extra">
+                            {{-- <div id="product-comments-block-extra">
                                 <ul class="comments-advices">
                                     <li>
                                         <a href="#" class="open-comment-form">Write a review</a>
                                     </li>
                                 </ul>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
 
@@ -171,8 +171,8 @@
                         <div class="p-details-tab">
                             <ul class="p-details-nav-tab" role="tablist">
                                 <li role="presentation" class="active"><a href="#more-info" aria-controls="more-info" role="tab" data-toggle="tab">Description</a></li>
-                                <li role="presentation"><a href="#data" aria-controls="data" role="tab" data-toggle="tab">Review</a></li>
-                                <li role="presentation"><a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">Tab</a></li>
+                                {{-- <li role="presentation"><a href="#data" aria-controls="data" role="tab" data-toggle="tab">Review</a></li>
+                                <li role="presentation"><a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">Tab</a></li> --}}
                             </ul>
                         </div>
                         <div class="clearfix"></div>

@@ -24,7 +24,7 @@ class CheckoutRequest extends FormRequest
     public function rules()
     {
         return [
-            'email'      => 'required',
+            'email'      => 'required|email',
             'firstname'  => 'required',
             'lastname'   => 'required',
             'address'    => 'required',
@@ -32,17 +32,6 @@ class CheckoutRequest extends FormRequest
             'state'      => 'required',
             'postcode'   => 'required',
             'phone'      => 'required',
-
-            'email1'     => 'required',
-            'firstname1' => 'required',
-            'lastname1'  => 'required',
-            'address1'   => 'required',
-            'city1'      => 'required',
-            'state1'     => 'required',
-            'postcode1'  => 'required',
-            'phone1'     => 'required',
-
-            'phone2'     => 'required',
         ];
     }
 }

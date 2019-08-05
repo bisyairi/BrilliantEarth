@@ -91,7 +91,6 @@
                             <li>
                                 <a class="header-cart-link" href="{{ route('cart.index') }}">
                                     <i class="flaticon-bag"></i>
-                                    <span>0</span>
                                 </a>
                             </li>
                         </ul>

@@ -6,7 +6,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2>Login / Create An Account</h2>
+                    <h2>Register</h2>
                 </div>
             </div>
         </div>
@@ -18,9 +18,9 @@
             <div class="row">
                 <div class="account-details">
                     <div class="col-lg-6 col-md-6 col-sm-6">
-                        <form method="post" class="login-form" action="{{ route('login') }}">
+                        <form method="post" class="login-form" action="{{ route('register') }}">
                             @csrf
-                            <h1 class="heading-title">Already registered?</h1>
+                            <h1 class="heading-title">Register your account</h1>
                             <p class="form-row">
                                 <label>Email address</label>
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>

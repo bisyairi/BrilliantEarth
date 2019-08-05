@@ -30,15 +30,19 @@ Route::post('/cart', 'CartController@store')->name('cart.store');
 Route::patch('/cart/{product}', 'CartController@update')->name('cart.update');
 Route::delete('/cart/{product}', 'CartController@destroy')->name('cart.destroy');
 Route::delete('/remove/{product}', 'CartController@remove')->name('cart.remove');
+// Route::post('/cart/wishlist/{product}', 'CartController@wishlist')->name('cart.wishlist');
 
 Route::post('/coupon', 'CouponsController@store')->name('coupon.store');
 Route::delete('/coupon', 'CouponsController@destroy')->name('coupon.destroy');
 
 
 Route::get('/checkout', 'CheckoutController@index')->name('checkout.index')->middleware('auth');
-// Route::post('/checkout', 'CheckoutController@store')->name('checkout.store');
-
+Route::post('/checkout', 'CheckoutController@store')->name('checkout.store');
 Route::get('/paypal-transaction-complete', 'PaymentController@execute');
+
+Route::get('/guestCheckout', 'CheckoutController@index')->name('guestCheckout.index');
+
+Route::get('/thankyou', 'ConfirmationController@index')->name('confirmation.index');
 
 
 
@@ -50,7 +54,7 @@ Route::get('/paypal-transaction-complete', 'PaymentController@execute');
 // Route::get('/my-account', 'PagesController@myaccount');
 
 // Route::get('/single-product', 'PagesController@singleproduct');
-// Route::get('/thank-you', 'PagesController@thankyou');
+
 // Route::get('/wishlist', 'PagesController@wishlist');
 
 Auth::routes();
@@ -61,6 +65,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 

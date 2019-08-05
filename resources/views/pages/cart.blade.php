@@ -106,6 +106,7 @@
 
                     </div>
 
+
                     @else
                         <h3>No items in Cart!</h3>
                         <br>
@@ -113,8 +114,13 @@
                             <a class="left-shoping-cart" href="/shop">CONTINUE SHOPPING</a>
                         </div>
                     @endif
+
                 </div>
+
+
             </div>
+
+
         </div>
     </div>
     <!--Cart Page Area End-->

@@ -55,7 +55,7 @@ class CartController extends Controller
             'name' => $request->name,
             'qty' => $request->qty,
             'price' => $request->price,
-            'weight' => '',
+            'weight' => 0,
             'options' => [
                 'size'=>$request->size,
                 'gemstone'=>$request->gemstone,
@@ -118,4 +118,37 @@ class CartController extends Controller
 
         return back()->with('success_message', 'Item has been removed!');
     }
+
+    /**
+     * Switch item to add to the wishlist.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+
+    // public function wishlist($id)
+    // {
+    //     $item = Cart::get($id);
+
+    //     Cart::remove($id);
+
+    //     Cart::instance('addToWishlist')->add([
+    //         'id' => id,
+    //         'name' => name,
+    //         'qty' => qty,
+    //         'price' => price,
+    //         'weight' => 0,
+    //         'options' => [
+    //             'size'=> size,
+    //             'gemstone'=> gemstone,
+    //             'slug'=> slug,
+    //             'sku'=> sku,
+    //             'colour'=> colour,
+    //             'image'=> image]
+    //     ]);
+
+    //     return redirect()->route('cart.index')->with('success_message', 'Item has been added to your wishlist!');
+
+    // }
+
 }

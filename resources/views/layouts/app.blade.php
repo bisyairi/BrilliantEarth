@@ -37,6 +37,8 @@
 		<link rel="stylesheet" href="{{asset('style.css')}}">
 		<!-- responsive css -->
         <link rel="stylesheet" href="{{asset('css/responsive.css')}}">
+        <!-- stripe css -->
+        <link rel="stylesheet" href="{{asset('css/stripe.css')}}">
 		<!-- modernizr css -->
         <script src="{{asset('js/vendor/modernizr-2.8.3.min.js')}}"></script>
 
