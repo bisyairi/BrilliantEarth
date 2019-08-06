@@ -17,6 +17,9 @@ class CartController extends Controller
      */
     public function index()
     {
+
+        // dd(Cart::content());
+
         $cartItems = Cart::content();
 
         $ids = $cartItems->pluck('id');
@@ -64,6 +67,22 @@ class CartController extends Controller
                 'colour'=>$request->colour,
                 'image'=> $request->image]
         ]);
+
+        // Cart::add([
+        //     'id' =>$product->id,
+        //     'name' =>$product->name,
+        //     'qty' =>$product->qty,
+        //     'price' =>$product->price,
+        //     'weight' => 0,
+        //     'options' => [
+        //         'productid'=>$product->product_id,
+        //         'size'=>$product->size,
+        //         'gemstone'=>$product->gemstone,
+        //         'slug'=>$product->slug,
+        //         'sku'=>$product->sku,
+        //         'colour'=>$product->colour,
+        //         'image'=> $product->image]
+        // ])->associate('App\ProductAttribute');
 
         return redirect()->route('cart.index')->with('success_message', 'Item was added to your cart!');
     }

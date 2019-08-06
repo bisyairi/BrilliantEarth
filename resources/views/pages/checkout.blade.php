@@ -31,7 +31,7 @@
                 <div class="alert alert-danger">
                     <ul>
                         @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
+                            <li>{!! $error !!}</li>
                         @endforeach
                     </ul>
                 </div>
@@ -67,7 +67,7 @@
                                     </a>
                                 </h4>
                             </div>
-                            <div id="billingaddress" class="panel-collapse" role="tabpanel" aria-labelledby="headingOne">
+                            <div id="billingaddress" class="panel-collapse in" role="tabpanel" aria-labelledby="headingOne">
                                 <div class="panel-body">
                                     <div class="row">
                                         <div class="col-md-6">
@@ -160,10 +160,10 @@
                                         <form action="#" id="payment-form">
                                             <ul class="form-list">
                                                 <li class="control">
-                                                    <label for="card-element">Credit or debit card</label>
+                                                    <label for="card-element">Credit or debit card<span class="required">*</span></label>
                                                     <div class="form-group">
                                                         <p class="form-row">
-                                                            <input type="text"  id="name_on_card" name="name_on_card" value="" placeholder="Name on Card">
+                                                            <input type="text"  id="name_on_card" name="name_on_card" placeholder="Name on Card" value="{{ old('name_on_card') }}" required>
                                                         </p>
                                                     </div>
                                                     <div class="form-group">
@@ -205,6 +205,7 @@
                                                         <th colspan="1">Subtotal</th>
                                                     </tr>
                                                 </thead>
+
                                                 @foreach (Cart::content() as $item)
                                                 <tbody>
                                                     <tr>

@@ -20,6 +20,7 @@
         "nesbot/carbon": "^2.17",
         "nicolaslopezj/searchable": "1.*",
         "paypal/rest-api-sdk-php": "*",
+        "stripe/stripe-php": "^6.41",
         "tcg/voyager": "^1.2"
     },
     "require-dev": {

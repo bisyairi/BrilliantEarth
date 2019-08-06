@@ -21,7 +21,7 @@ class CreateOrdersTable extends Migration
             $table->string('billing_name')->nullable();
             $table->string('billing_address')->nullable();
             $table->string('billing_city')->nullable();
-            $table->string('billing_province')->nullable();
+            $table->string('billing_state')->nullable();
             $table->string('billing_postalcode')->nullable();
             $table->string('billing_phone')->nullable();
             $table->string('billing_name_on_card')->nullable();
@@ -33,6 +33,7 @@ class CreateOrdersTable extends Migration
             $table->string('payment_gateway')->default('stripe');
             $table->boolean('shipped')->default(false);
             $table->string('error')->nullable();
+
             $table->timestamps();
         });
     }
