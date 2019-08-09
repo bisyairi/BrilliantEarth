@@ -104,7 +104,7 @@ class CheckoutController extends Controller
             'billing_name' => $request->name,
             'billing_address' => $request->address,
             'billing_city' => $request->city,
-            'billing_province' => $request->province,
+            'billing_state' => $request->state,
             'billing_postalcode' => $request->postalcode,
             'billing_phone' => $request->phone,
             'billing_name_on_card' => $request->name_on_card,
